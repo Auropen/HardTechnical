@@ -1,0 +1,16 @@
+[
+{
+  "modid": "techplex",
+  "name": "TechPlex",
+  "description": "TechPlex adds technical features with complex recipes.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Auropen"],
+  "credits": "The Forge and FML guys",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
