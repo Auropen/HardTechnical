@@ -15,11 +15,11 @@ public class TechPlex {
     
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-    	TechPlexCore.GetInstance().preinit();
+    	TechPlexCore.getInstance().preinit();
     }
     
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	TechPlexCore.GetInstance().init();
+    	TechPlexCore.getInstance().init();
     }
 }
