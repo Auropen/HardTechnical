@@ -1,11 +1,15 @@
 package techplex.core;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import techplex.core.items.UninsulatedCable;
+import techplex.TechPlex;
 
 public class CreativeTabsTechPlex extends CreativeTabs{
-	public static final CreativeTabs tabTechPlex = new CreativeTabsTechPlex("techplex");
+	public static final String MAINTABID = "techplex";
+	public static final String MAINTABNAME = "TechPlex";
+	
+	public static final CreativeTabs tabTechPlex = new CreativeTabsTechPlex(TechPlex.MODID + "." + MAINTABID);
 	
 	public CreativeTabsTechPlex(String label) {
 		super(label);
@@ -13,6 +17,11 @@ public class CreativeTabsTechPlex extends CreativeTabs{
 
 	@Override
 	public Item getTabIconItem() {
-		return new UninsulatedCable();
+		return Items.fire_charge;
+	}
+	
+	@Override
+	public String getTranslatedTabLabel() {
+		return MAINTABNAME;
 	}
 }

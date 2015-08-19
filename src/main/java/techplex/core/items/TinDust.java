@@ -1,13 +1,15 @@
 package techplex.core.items;
 
 import net.minecraft.item.Item;
+import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
-public class UninsulatedCable extends Item {
+public class TinDust extends Item {
+public final static String ITEMID = "tinDust";
 	
-	public UninsulatedCable() {
+	public TinDust() {
 		maxStackSize = 64;
         setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
-		setUnlocalizedName("uninsulatedCable");
+		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

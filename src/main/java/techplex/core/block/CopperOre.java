@@ -13,6 +13,7 @@ public class CopperOre extends Block {
 		setHardness(3.0F);
 		setResistance(5.0f);
         setStepSound(Block.soundTypeStone);
+        setHarvestLevel("pickaxe", 2);
         setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
         setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 	}
