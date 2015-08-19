@@ -29,3 +29,13 @@ eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.co
 eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
 eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs
 eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs
+eclipse/crash-reports/crash-2015-08-19_03.42.18-client.txt
+*.gz
+*.log
+*.zip
+*.dat
+*.dat_mcr
+*.dat_old
+*.mca
+*.lock
+eclipse/*

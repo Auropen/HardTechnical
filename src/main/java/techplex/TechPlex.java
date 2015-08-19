@@ -1,10 +1,11 @@
+package techplex;
 
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import core.TechPlexCore;
+import techplex.core.TechPlexCore;
 
 @Mod(modid = TechPlex.MODID, name = TechPlex.NAME, version = TechPlex.VERSION)
 public class TechPlex {
