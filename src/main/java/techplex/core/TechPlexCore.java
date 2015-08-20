@@ -26,7 +26,7 @@ public class TechPlexCore {
 		return instance;
 	}
 	
-	public void preinit() {
+	public void preInit() {
 	}
 	
 	public void init() {
@@ -68,5 +68,9 @@ public class TechPlexCore {
 				new ItemStack(ItemRegistry.REGITEMS.get(TinIngot.ITEMID),1), 0.35f);
 		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(BronzeDust.ITEMID), 
 				new ItemStack(ItemRegistry.REGITEMS.get(BronzeIngot.ITEMID),1), 0.35f);
+	}
+	
+	public void postInit() {
+		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0);
 	}
 }
