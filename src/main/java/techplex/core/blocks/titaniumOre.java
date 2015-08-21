@@ -5,10 +5,10 @@ import net.minecraft.block.material.Material;
 import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
-public class CopperOre extends Block {
-	public static final String BLOCKID = "copperOre";
+public class titaniumOre extends Block {
+	public static final String BLOCKID = "titaniumOre";
 	
-	public CopperOre() {
+	public titaniumOre() {
 		super(Material.rock);
 		setHardness(3.0F);
 		setResistance(5.0f);

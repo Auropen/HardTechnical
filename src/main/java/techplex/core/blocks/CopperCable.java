@@ -5,16 +5,16 @@ import net.minecraft.block.material.Material;
 import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
-public class CopperOre extends Block {
-	public static final String BLOCKID = "copperOre";
+public class CopperCable extends Block {
+public final static String BLOCKID = "copperCable";
 	
-	public CopperOre() {
-		super(Material.rock);
-		setHardness(3.0F);
-		setResistance(5.0f);
-        setStepSound(Block.soundTypeStone);
-        setHarvestLevel("pickaxe", 1);
+	public CopperCable() {
+		super(Material.leaves);
+		setHardness(1.0F);
+		setResistance(2.5f);
+        setStepSound(Block.soundTypeCloth);
         setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
         setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setLightOpacity(0);
 	}
 }

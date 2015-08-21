@@ -1,10 +1,15 @@
 tile.techplex_copperOre.name=Copper Ore
 tile.techplex_tinOre.name=Tin Ore
+
 item.techplex_copperIngot.name=Copper Ingot
 item.techplex_tinIngot.name=Tin Ingot
 item.techplex_bronzeIngot.name=Bronze Ingot
+
 item.techplex_ironDust.name=Iron Dust
 item.techplex_goldDust.name=Gold Dust
 item.techplex_copperDust.name=Copper Dust
 item.techplex_tinDust.name=Tin Dust
 item.techplex_bronzeDust.name=Bronze Dust
+
+tile.techplex_tinCable.name=Tin Cable
+tile.techplex_copperCable.name=Copper Cable

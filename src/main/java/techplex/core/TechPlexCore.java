@@ -43,15 +43,14 @@ public class TechPlexCore {
 		//Blocks registering
 		BlockRegistry.registerBlock(new CopperOre(), CopperOre.BLOCKID);
 		BlockRegistry.registerBlock(new TinOre(), TinOre.BLOCKID);
+		BlockRegistry.registerBlock(new TinCable(), TinCable.BLOCKID);
+		BlockRegistry.registerBlock(new CopperCable(), CopperCable.BLOCKID);
 		
 		//Recipe registering
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemRegistry.REGITEMS.get(BronzeDust.ITEMID), 4)
-				, new Object[] {
-						ItemRegistry.REGITEMS.get(CopperDust.ITEMID), 
-						ItemRegistry.REGITEMS.get(CopperDust.ITEMID), 
-						ItemRegistry.REGITEMS.get(CopperDust.ITEMID), 
-						ItemRegistry.REGITEMS.get(TinDust.ITEMID)
-						});
+		RecipeRegistry.registerShapelessRecipe(BronzeDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, TinDust.ITEMID);
+		GameRegistry.addRecipe(new ItemStack(Items.baked_potato, 1), " i ", "iii", " i ", 'i', Items.iron_ingot);
+		GameRegistry.addRecipe(new ItemStack(BlockRegistry.REGBLOCKS.get(CopperCable.BLOCKID), 1), "ccc", 'c', ItemRegistry.REGITEMS.get(CopperIngot.ITEMID));
+		GameRegistry.addRecipe(new ItemStack(BlockRegistry.REGBLOCKS.get(TinCable.BLOCKID), 1), "ttt", 't', ItemRegistry.REGITEMS.get(TinIngot.ITEMID));
 		
 		//Recipe smelting
 		GameRegistry.addSmelting(BlockRegistry.REGBLOCKS.get(CopperOre.BLOCKID), 

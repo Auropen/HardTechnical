@@ -13,9 +13,8 @@ public class TinOre extends Block{
 		setHardness(3.0F);
 		setResistance(5.0F);
         setStepSound(Block.soundTypeStone);
-        setHarvestLevel("pickaxe", 2);
+        setHarvestLevel("pickaxe", 1);
         setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
         setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 	}
-
 }
