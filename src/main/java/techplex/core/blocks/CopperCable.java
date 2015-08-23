@@ -17,4 +17,24 @@ public final static String BLOCKID = "copperCable";
         setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
         setLightOpacity(0);
 	}
+	
+	public void extendUp() {
+		setBlockBounds(
+				(float) getBlockBoundsMinX(), 
+				(float) getBlockBoundsMinY(), 
+				(float) getBlockBoundsMinZ(), 
+				(float) getBlockBoundsMaxX(), 
+				(float) getBlockBoundsMaxY() * 1.5f, 
+				(float) getBlockBoundsMaxZ());
+	}
+	
+	public void extendDown() {
+		setBlockBounds(
+				(float) getBlockBoundsMinX(), 
+				(float) getBlockBoundsMinY(), 
+				(float) getBlockBoundsMinZ(), 
+				(float) getBlockBoundsMaxX(), 
+				(float) getBlockBoundsMaxY(), 
+				(float) getBlockBoundsMaxZ());
+	}
 }

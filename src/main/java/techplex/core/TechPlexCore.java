@@ -5,6 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.core.blocks.*;
 import techplex.core.items.*;
+import techplex.core.pipes.BlockPipe;
+import techplex.core.pipes.TileEntityPipe;
 import techplex.core.registry.*;
 
 public class TechPlexCore {
@@ -43,8 +45,13 @@ public class TechPlexCore {
 		//Blocks registering
 		BlockRegistry.registerBlock(new CopperOre(), CopperOre.BLOCKID);
 		BlockRegistry.registerBlock(new TinOre(), TinOre.BLOCKID);
+		BlockRegistry.registerBlock(new SharingaLog(), SharingaLog.BLOCKID);
 		BlockRegistry.registerBlock(new TinCable(), TinCable.BLOCKID);
 		BlockRegistry.registerBlock(new CopperCable(), CopperCable.BLOCKID);
+		BlockRegistry.registerBlock(new BlockPipe(), "blockPipe");
+		
+		//TiteEntity
+		GameRegistry.registerTileEntity(TileEntityPipe.class, "tileEntityPipe");
 		
 		//Recipe registering
 		RecipeRegistry.registerShapelessRecipe(BronzeDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, TinDust.ITEMID);

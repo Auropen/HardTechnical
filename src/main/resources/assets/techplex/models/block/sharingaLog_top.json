@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "techplex:blocks/sharingaLog_top",
+        "side": "techplex:blocks/sharingaLog"
+    }
+}

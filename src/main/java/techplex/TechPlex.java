@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import techplex.core.TechPlexCore;
 
-@Mod(modid = TechPlex.MODID, name = TechPlex.NAME, version = TechPlex.VERSION)
+@Mod(modid = TechPlex.MODID, name = TechPlex.NAME, version = TechPlex.VERSION, acceptedMinecraftVersions="[1.8]")
 public class TechPlex {
     public static final String MODID = "techplex";
     public static final String NAME = "TechPlex";
