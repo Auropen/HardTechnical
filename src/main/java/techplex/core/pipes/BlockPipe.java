@@ -6,7 +6,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockPipe extends BlockContainer{
-
+	public final static String BLOCKID = "blockPipe";
+	
 	public BlockPipe() {
 		super(Material.ground);
 	}

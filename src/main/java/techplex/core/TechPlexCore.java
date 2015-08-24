@@ -3,16 +3,14 @@ package techplex.core;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import techplex.core.blocks.*;
-import techplex.core.blocks.nature.Sharinga_Leaves;
-import techplex.core.blocks.nature.Sharinga_Log;
-import techplex.core.items.*;
-import techplex.core.pipes.BlockPipe;
 import techplex.core.pipes.TileEntityPipe;
-import techplex.core.registry.*;
+import techplex.core.registry.TPBlocks;
+import techplex.core.registry.TPItems;
 
 public class TechPlexCore {
 	private static TechPlexCore instance;
+	private TPBlocks blocks = new TPBlocks();
+	private TPItems items = new TPItems();
 	
 	/**
 	 * Prevents initialising this class, making it a singleton
@@ -31,14 +29,17 @@ public class TechPlexCore {
 	}
 	
 	public void preInit() {
+		blocks.register();
+		items.register();
 	}
 	
 	public void init() {
+		/*
 		//Items registering
 		ItemRegistry.registerItem(TPItems.copperIngot, CopperIngot.ITEMID);
 		ItemRegistry.registerItem(TPItems.tinIngot, TinIngot.ITEMID);
 		ItemRegistry.registerItem(TPItems.bronzeIngot, BronzeIngot.ITEMID);
-		ItemRegistry.registerItem(TPItems.IronDust, IronDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.ironDust, IronDust.ITEMID);
 		ItemRegistry.registerItem(TPItems.goldDust, GoldDust.ITEMID);
 		ItemRegistry.registerItem(TPItems.copperDust, CopperDust.ITEMID);
 		ItemRegistry.registerItem(TPItems.tinDust, TinDust.ITEMID);
@@ -47,11 +48,13 @@ public class TechPlexCore {
 		//Blocks registering
 		BlockRegistry.registerBlock(TPBlocks.copperOre, CopperOre.BLOCKID);
 		BlockRegistry.registerBlock(TPBlocks.tinOre, TinOre.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.sharingaLog, SharingaLog.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.sharingaLog, Sharinga_Log.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.sharingaLeaves, Sharinga_Leaves.BLOCKID);
 		BlockRegistry.registerBlock(TPBlocks.tinCable, TinCable.BLOCKID);
 		BlockRegistry.registerBlock(TPBlocks.copperCable, CopperCable.BLOCKID);
-		BlockRegistry.registerBlock(new BlockPipe(), "blockPipe");
+		BlockRegistry.registerBlock(TPBlocks.blockPipe, BlockPipe.BLOCKID);
 		
+		*/
 		//TiteEntity
 		GameRegistry.registerTileEntity(TileEntityPipe.class, "tileEntityPipe");
 		
@@ -66,7 +69,7 @@ public class TechPlexCore {
 				new ItemStack(TPItems.copperIngot,1), 0.7f);
 		GameRegistry.addSmelting(TPBlocks.tinOre, 
 				new ItemStack(TPItems.tinIngot,1), 0.7f);
-		GameRegistry.addSmelting(TPItems.IronDust, 
+		GameRegistry.addSmelting(TPItems.ironDust, 
 				new ItemStack(Items.iron_ingot,1), 0.35f);
 		GameRegistry.addSmelting(TPItems.goldDust, 
 				new ItemStack(Items.gold_ingot,1), 0.35f);

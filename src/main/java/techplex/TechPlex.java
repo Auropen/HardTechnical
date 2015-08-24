@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import techplex.core.TechPlexCore;
 import techplex.core.proxy.CommonProxy;
 
@@ -19,13 +21,19 @@ public class TechPlex {
     @SidedProxy(clientSide="techplex.core.proxy.ClientProxy", serverSide="techplex.core.proxy.ServerProxy")
     public static CommonProxy proxy;
     
+    public static SimpleNetworkWrapper network;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	proxy.preInit(event);
+    	network = NetworkRegistry.INSTANCE.newSimpleChannel("Minestrap");
     	TechPlexCore.getInstance().preInit();
     }
     
     @EventHandler
     public void init(FMLInitializationEvent event) {
+		proxy.registerRenders();
+	    proxy.init(event);
     	TechPlexCore.getInstance().init();
     }
     

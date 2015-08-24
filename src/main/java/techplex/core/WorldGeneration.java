@@ -12,23 +12,19 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import techplex.core.blocks.CopperOre;
-import techplex.core.blocks.TinOre;
 import techplex.core.blocks.nature.Sharinga_Leaves;
-import techplex.core.blocks.nature.Sharinga_Log;
-import techplex.core.registry.BlockRegistry;
+import techplex.core.blocks.nature.TPBlockLeaves;
+import techplex.core.blocks.nature.TPBlockLog;
+import techplex.core.enumtypes.TPWoodType;
+import techplex.core.registry.TPBlocks;
 
 public class WorldGeneration implements IWorldGenerator {
-	
-	private final int[][][] shapeCircle = {{{0, 0, 1, 0, 0},{0, 1, 1, 1, 0},{1, 1, 1, 1, 1},{0, 1, 1, 1, 0},{0, 0, 1, 0, 0}},
-										  {{0, 1, 0},{1, 1, 1},{0, 1, 0}}};
-	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		generateOre(BlockRegistry.REGBLOCKS.get(CopperOre.BLOCKID), world, random, chunkX, chunkZ, 1, 8, 20, 32, 72, true);
-		generateOre(BlockRegistry.REGBLOCKS.get(TinOre.BLOCKID), world, random, chunkX, chunkZ, 1, 8, 18, 16, 56, true);
+		generateOre(TPBlocks.copperOre, world, random, chunkX, chunkZ, 1, 8, 20, 32, 72, true);
+		generateOre(TPBlocks.tinOre, world, random, chunkX, chunkZ, 1, 8, 18, 16, 56, true);
 		//RubberTree (Sharinga)
-		generateTree(BlockRegistry.REGBLOCKS.get(Sharinga_Log.BLOCKID), world, random, chunkX, chunkZ, 3, 7, 0.05f, 4, 6, true);
+		generateTree(TPBlocks.techplex_log, TPBlocks.techplex_leaves, world, random, chunkX, chunkZ, 3, 7, 0.05f, 4, 6, true);
 	}
 	
 	private void generateOre(Block block, World world, Random rand, int chunkX, int chunkZ, int minVienSize, int maxVienSize, int chance, int minY, int maxY, boolean generate) {
@@ -42,7 +38,7 @@ public class WorldGeneration implements IWorldGenerator {
         }
     }
 	
-	private void generateTree(Block block, World world, Random rand, int chunkX, int chunkZ, int minTreeAmount, int maxTreeAmount, float chance, int minHeight, int maxHeight, boolean generate) {
+	private void generateTree(Block log, Block leaves, World world, Random rand, int chunkX, int chunkZ, int minTreeAmount, int maxTreeAmount, float chance, int minHeight, int maxHeight, boolean generate) {
 		//Should there be generated tree?
 		if (!generate) 
 			return;
@@ -88,30 +84,41 @@ public class WorldGeneration implements IWorldGenerator {
 					
 					//Generate Tree
 					for (int y = 0; y < treeHeight; y++)
-						world.setBlockState(treePos.up(y), BlockRegistry.REGBLOCKS.get(Sharinga_Log.BLOCKID).getDefaultState());
+						world.setBlockState(treePos.up(y), log.getDefaultState().withProperty(TPBlockLog.VARIANT, TPWoodType.SHARINGA));
 					
 					//Generate Leaves
 					for (int y = 0; y < 2; y++) {
 						for (int x = 0; x < 5; x++) {
 							for (int z = 0; z < 5; z++) {
-								if (blockInPosition(world, treePos.add(x-2, treeHeight-3 + y, z-2), Blocks.air))
-									if (Math.abs(x) == 2 || Math.abs(z) == 2)
-										world.setBlockState(treePos.add(x-2, treeHeight-3 + y, z-2), BlockRegistry.REGBLOCKS.get(Sharinga_Leaves.BLOCKID).getDefaultState().withProperty(Sharinga_Leaves.CHECK_DECAY, false));
+								BlockPos leafPos = treePos.add(x-2, treeHeight-3 + y, z-2);
+								if (blockInPosition(world, leafPos, Blocks.air))
+									if (Math.abs(x) > 1 || Math.abs(z) > 1)
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(Sharinga_Leaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 									else
-										world.setBlockState(treePos.add(x-2, treeHeight-3 + y, z-2), BlockRegistry.REGBLOCKS.get(Sharinga_Leaves.BLOCKID).getDefaultState());
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 							}
 						}
 					}
-					for (int type = 0; type < shapeCircle.length; type++) {
-						for (int x = 0; x < shapeCircle[type].length; x++) {
-							for (int z = 0; z < shapeCircle[type].length; z++) {
-								if (blockInPosition(world, treePos.add(x - (type + 1), treeHeight-1 + type, z - (type + 1)), Blocks.air))
-									if (shapeCircle[type][x][z] == 1)
-										if (Math.abs(x) == 2 || Math.abs(z) == 2)
-											world.setBlockState(treePos.add(x - (2 - type), treeHeight-1 + type, z - (2 - type)), BlockRegistry.REGBLOCKS.get(Sharinga_Leaves.BLOCKID).getDefaultState().withProperty(Sharinga_Leaves.CHECK_DECAY, false));
-										else
-											world.setBlockState(treePos.add(x - (2 - type), treeHeight-1 + type, z - (2 - type)), BlockRegistry.REGBLOCKS.get(Sharinga_Leaves.BLOCKID).getDefaultState());
-							}
+					for (int x = 0; x < 5; x++) {
+						for (int z = 0; z < 5; z++) {
+							BlockPos leafPos = treePos.add(x - 2, treeHeight-1, z - 2);
+							if (blockInPosition(world, leafPos, Blocks.air))
+								if (treePos.distanceSq(leafPos) < 2.5)
+									if (Math.abs(x) > 1 || Math.abs(z) > 1)
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
+									else
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
+						}
+					}
+					for (int x = 0; x < 3; x++) {
+						for (int z = 0; z < 3; z++) {
+							BlockPos leafPos = treePos.add(x - 1, treeHeight, z - 1);
+							if (blockInPosition(world, leafPos, Blocks.air))
+								if (treePos.distanceSq(leafPos) < 1)
+									if (Math.abs(x) > 1 || Math.abs(z) > 1)
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
+									else
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 						}
 					}
 				}

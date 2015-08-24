@@ -5,7 +5,7 @@ import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
 public class IronDust extends Item {
-public final static String ITEMID = "ironDust";
+	public final static String ITEMID = "ironDust";
 	
 	public IronDust() {
 		maxStackSize = 64;
