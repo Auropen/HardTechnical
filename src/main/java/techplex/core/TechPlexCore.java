@@ -33,47 +33,47 @@ public class TechPlexCore {
 	
 	public void init() {
 		//Items registering
-		ItemRegistry.registerItem(new CopperIngot(), CopperIngot.ITEMID);
-		ItemRegistry.registerItem(new TinIngot(), TinIngot.ITEMID);
-		ItemRegistry.registerItem(new BronzeIngot(), BronzeIngot.ITEMID);
-		ItemRegistry.registerItem(new IronDust(), IronDust.ITEMID);
-		ItemRegistry.registerItem(new GoldDust(), GoldDust.ITEMID);
-		ItemRegistry.registerItem(new CopperDust(), CopperDust.ITEMID);
-		ItemRegistry.registerItem(new TinDust(), TinDust.ITEMID);
-		ItemRegistry.registerItem(new BronzeDust(), BronzeDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.copperIngot, CopperIngot.ITEMID);
+		ItemRegistry.registerItem(TPItems.tinIngot, TinIngot.ITEMID);
+		ItemRegistry.registerItem(TPItems.bronzeIngot, BronzeIngot.ITEMID);
+		ItemRegistry.registerItem(TPItems.IronDust, IronDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.goldDust, GoldDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.copperDust, CopperDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.tinDust, TinDust.ITEMID);
+		ItemRegistry.registerItem(TPItems.bronzeDust, BronzeDust.ITEMID);
 		
 		//Blocks registering
-		BlockRegistry.registerBlock(new CopperOre(), CopperOre.BLOCKID);
-		BlockRegistry.registerBlock(new TinOre(), TinOre.BLOCKID);
-		BlockRegistry.registerBlock(new SharingaLog(), SharingaLog.BLOCKID);
-		BlockRegistry.registerBlock(new TinCable(), TinCable.BLOCKID);
-		BlockRegistry.registerBlock(new CopperCable(), CopperCable.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.copperOre, CopperOre.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.tinOre, TinOre.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.sharingaLog, SharingaLog.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.tinCable, TinCable.BLOCKID);
+		BlockRegistry.registerBlock(TPBlocks.copperCable, CopperCable.BLOCKID);
 		BlockRegistry.registerBlock(new BlockPipe(), "blockPipe");
 		
 		//TiteEntity
 		GameRegistry.registerTileEntity(TileEntityPipe.class, "tileEntityPipe");
 		
 		//Recipe registering
-		RecipeRegistry.registerShapelessRecipe(BronzeDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, CopperDust.ITEMID, TinDust.ITEMID);
+		GameRegistry.addShapelessRecipe(new ItemStack(TPItems.bronzeDust, 4), new Object[] {TPItems.tinDust, TPItems.copperDust, TPItems.copperDust, TPItems.copperDust});
 		GameRegistry.addRecipe(new ItemStack(Items.baked_potato, 1), " i ", "iii", " i ", 'i', Items.iron_ingot);
-		GameRegistry.addRecipe(new ItemStack(BlockRegistry.REGBLOCKS.get(CopperCable.BLOCKID), 1), "ccc", 'c', ItemRegistry.REGITEMS.get(CopperIngot.ITEMID));
-		GameRegistry.addRecipe(new ItemStack(BlockRegistry.REGBLOCKS.get(TinCable.BLOCKID), 1), "ttt", 't', ItemRegistry.REGITEMS.get(TinIngot.ITEMID));
+		GameRegistry.addRecipe(new ItemStack(TPBlocks.copperCable, 1), "ccc", 'c', TPItems.copperIngot);
+		GameRegistry.addRecipe(new ItemStack(TPBlocks.tinCable, 1), "ttt", 't', TPItems.tinIngot);
 		
 		//Recipe smelting
-		GameRegistry.addSmelting(BlockRegistry.REGBLOCKS.get(CopperOre.BLOCKID), 
-				new ItemStack(ItemRegistry.REGITEMS.get(CopperIngot.ITEMID),1), 0.7f);
-		GameRegistry.addSmelting(BlockRegistry.REGBLOCKS.get(TinOre.BLOCKID), 
-				new ItemStack(ItemRegistry.REGITEMS.get(TinIngot.ITEMID),1), 0.7f);
-		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(IronDust.ITEMID), 
+		GameRegistry.addSmelting(TPBlocks.copperOre, 
+				new ItemStack(TPItems.copperIngot,1), 0.7f);
+		GameRegistry.addSmelting(TPBlocks.tinOre, 
+				new ItemStack(TPItems.tinIngot,1), 0.7f);
+		GameRegistry.addSmelting(TPItems.IronDust, 
 				new ItemStack(Items.iron_ingot,1), 0.35f);
-		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(GoldDust.ITEMID), 
+		GameRegistry.addSmelting(TPItems.goldDust, 
 				new ItemStack(Items.gold_ingot,1), 0.35f);
-		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(CopperDust.ITEMID), 
-				new ItemStack(ItemRegistry.REGITEMS.get(CopperIngot.ITEMID),1), 0.35f);
-		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(TinDust.ITEMID), 
-				new ItemStack(ItemRegistry.REGITEMS.get(TinIngot.ITEMID),1), 0.35f);
-		GameRegistry.addSmelting(ItemRegistry.REGITEMS.get(BronzeDust.ITEMID), 
-				new ItemStack(ItemRegistry.REGITEMS.get(BronzeIngot.ITEMID),1), 0.35f);
+		GameRegistry.addSmelting(TPItems.copperDust, 
+				new ItemStack(TPItems.copperIngot,1), 0.35f);
+		GameRegistry.addSmelting(TPItems.tinDust, 
+				new ItemStack(TPItems.tinIngot,1), 0.35f);
+		GameRegistry.addSmelting(TPItems.bronzeDust, 
+				new ItemStack(TPItems.bronzeIngot,1), 0.35f);
 	}
 	
 	public void postInit() {
