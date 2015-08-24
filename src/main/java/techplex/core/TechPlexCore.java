@@ -4,6 +4,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.core.blocks.*;
+import techplex.core.blocks.nature.Sharinga_Leaves;
+import techplex.core.blocks.nature.Sharinga_Log;
 import techplex.core.items.*;
 import techplex.core.pipes.BlockPipe;
 import techplex.core.pipes.TileEntityPipe;
@@ -45,7 +47,8 @@ public class TechPlexCore {
 		//Blocks registering
 		BlockRegistry.registerBlock(new CopperOre(), CopperOre.BLOCKID);
 		BlockRegistry.registerBlock(new TinOre(), TinOre.BLOCKID);
-		BlockRegistry.registerBlock(new SharingaLog(), SharingaLog.BLOCKID);
+		BlockRegistry.registerBlock(new Sharinga_Log(), Sharinga_Log.BLOCKID);
+		BlockRegistry.registerBlock(new Sharinga_Leaves(), Sharinga_Leaves.BLOCKID);
 		BlockRegistry.registerBlock(new TinCable(), TinCable.BLOCKID);
 		BlockRegistry.registerBlock(new CopperCable(), CopperCable.BLOCKID);
 		BlockRegistry.registerBlock(new BlockPipe(), "blockPipe");

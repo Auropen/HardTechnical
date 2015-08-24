@@ -1,0 +1,17 @@
+{
+   "variants":{
+      "normal,axis=y":{
+         "model":"techplex:sharinga_log_top"
+      },
+      "normal,axis=z":{
+         "model":"techplex:sharinga_log_side"
+      },
+      "normal,axis=x":{
+         "model":"techplex:sharinga_log_side",
+         "y":90
+      },
+      "normal,axis=none":{
+         "model":"techplex:sharinga_bark"
+      }
+   }
+}

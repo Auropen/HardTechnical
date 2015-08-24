@@ -10,10 +10,19 @@ public class BlockPipe extends BlockContainer{
 	public BlockPipe() {
 		super(Material.ground);
 	}
+	
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		// TODO Auto-generated method stub
 		return new TileEntityPipe();
 	}
 }

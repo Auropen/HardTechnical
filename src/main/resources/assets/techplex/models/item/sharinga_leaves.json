@@ -1,5 +1,5 @@
 {
-    "parent": "ministrapp:block/frozen_oak_leaves",
+    "parent": "techplex:block/sharinga_leaves",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
