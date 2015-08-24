@@ -5,10 +5,10 @@ import net.minecraft.block.material.Material;
 import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
-public class titaniumOre extends Block {
+public class TitaniumOre extends Block {
 	public static final String BLOCKID = "titaniumOre";
 	
-	public titaniumOre() {
+	public TitaniumOre() {
 		super(Material.rock);
 		setHardness(3.0F);
 		setResistance(5.0f);
