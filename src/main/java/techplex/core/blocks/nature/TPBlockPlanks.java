@@ -13,17 +13,20 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
 import techplex.core.items.ItemModMultiTexture;
 
-public class TPBlockPlank extends Block{
+public class TPBlockPlanks extends Block{
 
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TPWoodType.class, new Predicate() {
 		public boolean apply(TPWoodType type) {
@@ -35,7 +38,7 @@ public class TPBlockPlank extends Block{
 		}
 	});
 
-	public TPBlockPlank(String modelName) {
+	public TPBlockPlanks(String modelName) {
 		super(Material.wood);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA));
 		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
@@ -48,6 +51,13 @@ public class TPBlockPlank extends Block{
 				return TPWoodType.byMetadata(input.getItemDamage()).getName();
 			}
 		});
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerRenderer(String modelName) {
+		System.out.println("INITIALIZING BLOCK: " + modelName);
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), 0, new ModelResourceLocation(TechPlex.MODID+":" + modelName, "inventory"));
 	}
 
 	/**

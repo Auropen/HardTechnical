@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 import com.google.common.base.Function;
 
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -18,14 +17,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,6 +29,7 @@ import techplex.TechPlex;
 import techplex.core.enumtypes.TPWoodType;
 import techplex.core.items.ItemModMultiTexture;
 import techplex.core.registry.TPBlocks;
+import techplex.core.worldGen.WorldGenSharingaTree;
 
 public class TPBlockSapling extends BlockBush implements IGrowable {
 
@@ -96,42 +93,17 @@ public class TPBlockSapling extends BlockBush implements IGrowable {
 		}
 	}
 
-	public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-		Object object = rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
-		int i = 0;
-		int j = 0;
-		boolean flag = false;
+	public void generateTree(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!TerrainGen.saplingGrowTree(world, rand, pos)) return;
 
 		switch (TPBlockSapling.SwitchEnumType.WOOD_TYPE_LOOKUP[((TPWoodType)state.getValue(TYPE)).ordinal()]) {
 		case 1:
-			object = new WorldGenSharingaTree(TPBlocks.techplex_log, TPBlocks.techplex_leaves, TPWoodType.SHARINGA.getMetadata(), TPWoodType.SHARINGA.getMetadata(), false, 5, 3, false);
+			WorldGenSharingaTree treeGen = new WorldGenSharingaTree(TPBlocks.techplex_log, TPBlocks.techplex_leaves, TPWoodType.SHARINGA.getMetadata(), TPWoodType.SHARINGA.getMetadata(), false, 4);
+			treeGen.generate(world, rand, pos);
 			break;
 		case 2:
-			//object = new WorldGenPineTree(CustomPlanks.EnumType.PINE.getMetadata());
+			//object = new WorldGenAnotherTree();
 			break;
-		}
-
-		IBlockState iblockstate1 = Blocks.air.getDefaultState();
-
-		if (flag) {
-			worldIn.setBlockState(pos.add(i, 0, j), iblockstate1, 4);
-			worldIn.setBlockState(pos.add(i + 1, 0, j), iblockstate1, 4);
-			worldIn.setBlockState(pos.add(i, 0, j + 1), iblockstate1, 4);
-			worldIn.setBlockState(pos.add(i + 1, 0, j + 1), iblockstate1, 4);
-		}else {
-			worldIn.setBlockState(pos, iblockstate1, 4);
-		}
-
-		if (!((WorldGenerator)object).generate(worldIn, rand, pos.add(i, 0, j))) {
-			if (flag) {
-				worldIn.setBlockState(pos.add(i, 0, j), state, 4);
-				worldIn.setBlockState(pos.add(i + 1, 0, j), state, 4);
-				worldIn.setBlockState(pos.add(i, 0, j + 1), state, 4);
-				worldIn.setBlockState(pos.add(i + 1, 0, j + 1), state, 4);
-			}else {
-				worldIn.setBlockState(pos, state, 4);
-			}
 		}
 	}
 

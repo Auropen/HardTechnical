@@ -1,8 +1,8 @@
 {
    "variants":{
-      "axis=y,variant=null":   { "model":"techplex:sharinga_log" },
-      "axis=z,variant=null":   { "model":"techplex:sharinga_log_side" },
-      "axis=x,variant=null":   { "model":"techplex:sharinga_log_side", "y":90 },
-      "axis=none,variant=null":{ "model":"techplex:sharinga_bark" }
+      "axis=y,variant=sharinga":   { "model":"techplex:sharinga_log" },
+      "axis=z,variant=sharinga":   { "model":"techplex:sharinga_log_side" },
+      "axis=x,variant=sharinga":   { "model":"techplex:sharinga_log_side", "y":90 },
+      "axis=none,variant=sharinga":{ "model":"techplex:sharinga_bark" }
    }
 }

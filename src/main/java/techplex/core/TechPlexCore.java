@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.core.pipes.TileEntityPipe;
 import techplex.core.registry.TPBlocks;
 import techplex.core.registry.TPItems;
+import techplex.core.worldGen.WorldGeneration;
 
 public class TechPlexCore {
 	private static TechPlexCore instance;
@@ -63,6 +64,7 @@ public class TechPlexCore {
 		GameRegistry.addRecipe(new ItemStack(Items.baked_potato, 1), " i ", "iii", " i ", 'i', Items.iron_ingot);
 		GameRegistry.addRecipe(new ItemStack(TPBlocks.copperCable, 1), "ccc", 'c', TPItems.copperIngot);
 		GameRegistry.addRecipe(new ItemStack(TPBlocks.tinCable, 1), "ttt", 't', TPItems.tinIngot);
+		//GameRegistry.addShapelessRecipe(new ItemStack(TPBlocks.techplex_log, 1, 0), new Object[] {TPBlocks.techplex_log});
 		
 		//Recipe smelting
 		GameRegistry.addSmelting(TPBlocks.copperOre, 

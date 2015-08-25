@@ -88,7 +88,7 @@ public class TPBlockLeaves extends BlockLeaves {
 			TPWoodType enumtype = (TPWoodType)iblockstate.getValue(VARIANT);
 
 			if (enumtype == TPWoodType.SHARINGA)
-				return ColorizerFoliage.getFoliageColor(0, 0);
+				return ColorizerFoliage.getFoliageColor(0, 1);
 			/*if (enumtype == ???)
 			 * 	return ColorizerFoliage.getFoliageColorBirch();
 			 */

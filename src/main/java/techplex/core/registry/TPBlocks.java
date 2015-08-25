@@ -9,6 +9,8 @@ import techplex.TechPlex;
 import techplex.core.blocks.*;
 import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
+import techplex.core.blocks.nature.TPBlockPlanks;
+import techplex.core.blocks.nature.TPBlockSapling;
 import techplex.core.enumtypes.TPWoodType;
 import techplex.core.pipes.BlockPipe;
 
@@ -17,11 +19,10 @@ public class TPBlocks {
     public final static Block tinOre = new TinOre();
     public final static Block leadOre = new LeadOre();
     public final static Block titaniumOre = new TitaniumOre();
-    
-    //public final static Block sharingaLog = new Sharinga_Log();
-    //public final static Block sharingaLeaves = new Sharinga_Leaves();
     public final static Block techplex_log = new TPBlockLog("techplex_log");
     public final static Block techplex_leaves = new TPBlockLeaves("techplex_leaves");
+    public final static Block techplex_planks = new TPBlockPlanks("techplex_planks");
+    public final static Block techplex_sapling = new TPBlockSapling("techplex_sapling");
     
     public final static Block blockPipe = new BlockPipe();
     public final static Block tinCable = new TinCable();

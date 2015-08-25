@@ -1,7 +1,9 @@
 tile.techplex_copperOre.name=Copper Ore
 tile.techplex_tinOre.name=Tin Ore
-tile.techplex_log.null.name=Sharinga Wood
+tile.techplex_log.sharinga.name=Sharinga Wood
 tile.techplex_leaves.sharinga.name=Sharinga Leaves
+tile.techplex_planks.sharinga.name=Sharinga Planks
+tile.techplex_sapling.sharinga.name=Sharinga Sapling
 
 item.techplex_copperIngot.name=Copper Ingot
 item.techplex_tinIngot.name=Tin Ingot
