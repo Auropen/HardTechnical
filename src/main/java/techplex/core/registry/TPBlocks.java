@@ -1,24 +1,15 @@
 package techplex.core.registry;
 
-import javax.annotation.Nullable;
-
-import com.google.common.base.Function;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.TechPlex;
-import techplex.core.blocks.CopperCable;
-import techplex.core.blocks.CopperOre;
-import techplex.core.blocks.LeadOre;
-import techplex.core.blocks.TinCable;
-import techplex.core.blocks.TinOre;
-import techplex.core.blocks.TitaniumOre;
+import techplex.core.blocks.*;
 import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
+import techplex.core.enumtypes.TPWoodType;
 import techplex.core.pipes.BlockPipe;
 
 public class TPBlocks {
@@ -29,8 +20,8 @@ public class TPBlocks {
     
     //public final static Block sharingaLog = new Sharinga_Log();
     //public final static Block sharingaLeaves = new Sharinga_Leaves();
-    public final static Block techplex_log = new TPBlockLog("sharinga_log");
-    public final static Block techplex_leaves = new TPBlockLeaves("sharinga_leaves");
+    public final static Block techplex_log = new TPBlockLog("techplex_log");
+    public final static Block techplex_leaves = new TPBlockLeaves("techplex_leaves");
     
     public final static Block blockPipe = new BlockPipe();
     public final static Block tinCable = new TinCable();

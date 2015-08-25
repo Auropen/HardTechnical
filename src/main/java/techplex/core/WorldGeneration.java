@@ -101,7 +101,7 @@ public class WorldGeneration implements IWorldGenerator {
 						for (int z = 0; z < 5; z++) {
 							BlockPos leafPos = treePos.add(x - 2, treeHeight-1, z - 2);
 							if (blockInPosition(world, leafPos, Blocks.air))
-								if (treePos.up(treeHeight-1).distanceSq(leafPos) < 3)
+								if (treePos.up(treeHeight-1).distanceSq(leafPos) < 5)
 									if (Math.abs(x) > 1 || Math.abs(z) > 1)
 										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 									else
@@ -124,7 +124,7 @@ public class WorldGeneration implements IWorldGenerator {
         }
 	}
 	
-	private boolean checkClearance(World world, BlockPos pos) {
+	public boolean checkClearance(World world, BlockPos pos) {
 		if (blockInPosition(world, pos, Blocks.air) ||
 			blockInPosition(world, pos, Blocks.leaves) ||
 			blockInPosition(world, pos, Blocks.leaves2) ||
@@ -137,7 +137,7 @@ public class WorldGeneration implements IWorldGenerator {
 	}
 	
 
-	private boolean blockInPosition(World world, BlockPos pos, Block b) {
+	public boolean blockInPosition(World world, BlockPos pos, Block b) {
 		if (world.getBlockState(pos).getBlock().getClass() == b.getDefaultState().getBlock().getClass())
 			return true;
 		return false;

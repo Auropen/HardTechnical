@@ -39,7 +39,7 @@ public class TPBlockLog extends BlockLog {
 
 	public TPBlockLog(String modelName) {
 		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y)));
-		setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
+		setUnlocalizedName(modelName);
 		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 
 		System.out.println("INITIALIZING BLOCK: " + modelName);
@@ -106,7 +106,7 @@ public class TPBlockLog extends BlockLog {
 
 	protected BlockState createBlockState()
 	{
-		return new BlockState(this, new IProperty[] { VARIANT, LOG_AXIS });
+		return new BlockState(this, new IProperty[] { LOG_AXIS, VARIANT });
 	}
 
     protected ItemStack createStackedBlock(IBlockState state) {

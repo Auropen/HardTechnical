@@ -47,7 +47,7 @@ public class TPBlockLeaves extends BlockLeaves {
 
 	public TPBlockLeaves(String modelName) {
 		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(true))));
-		setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
+		setUnlocalizedName(modelName);
 		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 		System.out.println("INITIALIZING BLOCK: " + modelName);    
 		GameRegistry.registerBlock(this, ItemBlockLeaves.class, modelName); // Register the Block using ItemModMultiTexture as the ItemBlock class
@@ -140,7 +140,7 @@ public class TPBlockLeaves extends BlockLeaves {
 
 	protected BlockState createBlockState()
 	{
-		return new BlockState(this, new IProperty[] { VARIANT, CHECK_DECAY, DECAYABLE });
+		return new BlockState(this, new IProperty[] { CHECK_DECAY, DECAYABLE, VARIANT });
 	}
 
 	protected int getSaplingDropChance(IBlockState state) {
