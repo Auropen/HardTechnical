@@ -2,6 +2,7 @@ package techplex.core.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.EnumWorldBlockLayer;
 import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
@@ -18,23 +19,15 @@ public final static String BLOCKID = "copperCable";
         setLightOpacity(0);
 	}
 	
-	public void extendUp() {
-		setBlockBounds(
-				(float) getBlockBoundsMinX(), 
-				(float) getBlockBoundsMinY(), 
-				(float) getBlockBoundsMinZ(), 
-				(float) getBlockBoundsMaxX(), 
-				(float) getBlockBoundsMaxY() * 1.5f, 
-				(float) getBlockBoundsMaxZ());
+	@Override
+	public EnumWorldBlockLayer getBlockLayer() {
+		// TODO Auto-generated method stub
+		return EnumWorldBlockLayer.CUTOUT;
 	}
 	
-	public void extendDown() {
-		setBlockBounds(
-				(float) getBlockBoundsMinX(), 
-				(float) getBlockBoundsMinY(), 
-				(float) getBlockBoundsMinZ(), 
-				(float) getBlockBoundsMaxX(), 
-				(float) getBlockBoundsMaxY(), 
-				(float) getBlockBoundsMaxZ());
+	@Override
+	public boolean isOpaqueCube() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

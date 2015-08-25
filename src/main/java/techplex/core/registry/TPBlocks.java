@@ -29,8 +29,8 @@ public class TPBlocks {
     
     //public final static Block sharingaLog = new Sharinga_Log();
     //public final static Block sharingaLeaves = new Sharinga_Leaves();
-    public final static Block techplex_log = new TPBlockLog("techplex_log");
-    public final static Block techplex_leaves = new TPBlockLeaves("techplex_leaves");
+    public final static Block techplex_log = new TPBlockLog("sharinga_log");
+    public final static Block techplex_leaves = new TPBlockLeaves("sharinga_leaves");
     
     public final static Block blockPipe = new BlockPipe();
     public final static Block tinCable = new TinCable();

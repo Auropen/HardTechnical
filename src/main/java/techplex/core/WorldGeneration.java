@@ -3,7 +3,6 @@ package techplex.core;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeaves;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -12,7 +11,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import techplex.core.blocks.nature.Sharinga_Leaves;
 import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.enumtypes.TPWoodType;
@@ -93,7 +91,7 @@ public class WorldGeneration implements IWorldGenerator {
 								BlockPos leafPos = treePos.add(x-2, treeHeight-3 + y, z-2);
 								if (blockInPosition(world, leafPos, Blocks.air))
 									if (Math.abs(x) > 1 || Math.abs(z) > 1)
-										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(Sharinga_Leaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 									else
 										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 							}
@@ -103,9 +101,9 @@ public class WorldGeneration implements IWorldGenerator {
 						for (int z = 0; z < 5; z++) {
 							BlockPos leafPos = treePos.add(x - 2, treeHeight-1, z - 2);
 							if (blockInPosition(world, leafPos, Blocks.air))
-								if (treePos.distanceSq(leafPos) < 2.5)
+								if (treePos.up(treeHeight-1).distanceSq(leafPos) < 3)
 									if (Math.abs(x) > 1 || Math.abs(z) > 1)
-										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
+										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 									else
 										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 						}
@@ -114,7 +112,7 @@ public class WorldGeneration implements IWorldGenerator {
 						for (int z = 0; z < 3; z++) {
 							BlockPos leafPos = treePos.add(x - 1, treeHeight, z - 1);
 							if (blockInPosition(world, leafPos, Blocks.air))
-								if (treePos.distanceSq(leafPos) < 1)
+								if (treePos.up(treeHeight).distanceSq(leafPos) < 2)
 									if (Math.abs(x) > 1 || Math.abs(z) > 1)
 										world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.SHARINGA));
 									else

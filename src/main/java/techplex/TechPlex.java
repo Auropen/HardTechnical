@@ -25,16 +25,16 @@ public class TechPlex {
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	proxy.preInit(event);
-    	network = NetworkRegistry.INSTANCE.newSimpleChannel("Minestrap");
     	TechPlexCore.getInstance().preInit();
+    	proxy.preInit(event);
+    	network = NetworkRegistry.INSTANCE.newSimpleChannel("TechPlex");
     }
     
     @EventHandler
     public void init(FMLInitializationEvent event) {
-		proxy.registerRenders();
-	    proxy.init(event);
     	TechPlexCore.getInstance().init();
+	    proxy.init(event);
+		proxy.registerRenders();
     }
     
     @EventHandler
