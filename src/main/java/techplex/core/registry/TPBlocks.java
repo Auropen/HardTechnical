@@ -11,7 +11,6 @@ import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.blocks.nature.TPBlockPlanks;
 import techplex.core.blocks.nature.TPBlockSapling;
-import techplex.core.enumtypes.TPWoodType;
 import techplex.core.pipes.BlockPipe;
 
 public class TPBlocks {

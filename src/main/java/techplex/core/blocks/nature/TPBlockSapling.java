@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.google.common.base.Function;
+import com.google.common.base.Predicate;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -26,6 +27,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import techplex.TechPlex;
+import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
 import techplex.core.items.ItemModMultiTexture;
 import techplex.core.registry.TPBlocks;
@@ -33,12 +35,21 @@ import techplex.core.worldGen.WorldGenSharingaTree;
 
 public class TPBlockSapling extends BlockBush implements IGrowable {
 
-	public static final PropertyEnum TYPE = PropertyEnum.create("type", TPWoodType.class);
+	public static final PropertyEnum TYPE = PropertyEnum.create("type", TPWoodType.class, new Predicate() {
+		public boolean apply(TPWoodType type) {
+			return type.getMetadata() < 4;
+		}
+
+		public boolean apply(Object p_apply_1_) {
+			return this.apply((TPWoodType) p_apply_1_);
+		}
+	});
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 
 	public TPBlockSapling(String modelName) {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA).withProperty(STAGE, Integer.valueOf(0)));
 		this.setUnlocalizedName(modelName);
+		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 

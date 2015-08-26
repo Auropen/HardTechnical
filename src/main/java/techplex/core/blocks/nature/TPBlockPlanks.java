@@ -41,6 +41,7 @@ public class TPBlockPlanks extends Block{
 	public TPBlockPlanks(String modelName) {
 		super(Material.wood);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA));
+		this.setUnlocalizedName(modelName);
 		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 		
 		System.out.println("INITIALIZING BLOCK: " + modelName);

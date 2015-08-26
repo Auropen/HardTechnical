@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "techplex:items/sharinga_sapling"
+        "layer0": "techplex:blocks/sharinga_sapling"
     },
     "display": {
         "thirdperson": {
