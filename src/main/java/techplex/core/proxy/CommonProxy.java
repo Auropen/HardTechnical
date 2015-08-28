@@ -16,6 +16,10 @@ public class CommonProxy {
 	public void postInit(FMLPostInitializationEvent event) {
 		
 	}
+	
+	public void registerProxies() {
+		
+	}
 
 	public void registerRenders() {
 		// TODO Auto-generated method stub

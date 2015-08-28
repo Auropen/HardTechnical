@@ -1,5 +1,5 @@
 {
    "variants":{
-      "variant=sharinga":   { "model":"techplex:sharinga_planks" }
+      "variant=null":   { "model":"techplex:sharinga_planks" }
    }
 }

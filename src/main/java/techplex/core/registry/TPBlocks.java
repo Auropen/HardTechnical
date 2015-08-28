@@ -7,22 +7,26 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.TechPlex;
 import techplex.core.blocks.*;
+import techplex.core.blocks.nature.ItemBlockLeaves;
+import techplex.core.blocks.nature.ItemBlockPlanks;
+import techplex.core.blocks.nature.ItemBlockSapling;
 import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.blocks.nature.TPBlockPlanks;
 import techplex.core.blocks.nature.TPBlockSapling;
-import techplex.core.enumtypes.TPWoodType;
 import techplex.core.pipes.BlockPipe;
+import techplex.core.pipes.energy.CopperCable;
+import techplex.core.pipes.energy.TinCable;
 
 public class TPBlocks {
     public final static Block copperOre = new CopperOre();
     public final static Block tinOre = new TinOre();
     public final static Block leadOre = new LeadOre();
     public final static Block titaniumOre = new TitaniumOre();
-    public final static Block techplex_log = new TPBlockLog("techplex_log");
-    public final static Block techplex_leaves = new TPBlockLeaves("techplex_leaves");
-    public final static Block techplex_planks = new TPBlockPlanks("techplex_planks");
-    public final static Block techplex_sapling = new TPBlockSapling("techplex_sapling");
+    public final static Block techplex_log = new TPBlockLog().setUnlocalizedName("techplex_log");
+    public final static Block techplex_leaves = new TPBlockLeaves().setUnlocalizedName("techplex_leaves");;
+    public final static Block techplex_planks = new TPBlockPlanks().setUnlocalizedName("techplex_planks");;
+    public final static Block techplex_sapling = new TPBlockSapling().setUnlocalizedName("techplex_sapling");;
     
     public final static Block blockPipe = new BlockPipe();
     public final static Block tinCable = new TinCable();
@@ -34,8 +38,10 @@ public class TPBlocks {
     	//GameRegistry.registerBlock(leadOre, LeadOre.BLOCKID);
     	//GameRegistry.registerBlock(bauxiteOre, BauxiteOre.BLOCKID);
     	//GameRegistry.registerBlock(titaniumOre, TitaniumOre.BLOCKID);
-    	//GameRegistry.registerBlock(techplex_log, TPBlockLog.BLOCKID);
-    	//GameRegistry.registerBlock(techplex_leaves, TPBlockLeaves.BLOCKID);
+    	//GameRegistry.registerBlock(techplex_log, ItemBlockLog.class, TPBlockLog.BLOCKID);
+    	GameRegistry.registerBlock(techplex_leaves, ItemBlockLeaves.class, TPBlockLeaves.BLOCKID);
+    	GameRegistry.registerBlock(techplex_planks, ItemBlockPlanks.class, TPBlockPlanks.BLOCKID);
+    	GameRegistry.registerBlock(techplex_sapling, ItemBlockSapling.class, TPBlockSapling.BLOCKID);
     	
     	GameRegistry.registerBlock(blockPipe, BlockPipe.BLOCKID);
     	GameRegistry.registerBlock(tinCable, TinCable.BLOCKID);
@@ -48,7 +54,7 @@ public class TPBlocks {
     	//registerRender(leadOre, LeadOre.BLOCKID);
     	//registerRender(bauxiteOre, BauxiteOre.BLOCKID);
     	//registerRender(titaniumOre, TitaniumOre.BLOCKID);
-		registerRender(blockPipe, BlockPipe.BLOCKID);
+		registerRender(blockPipe, CopperCable.BLOCKID);
 		registerRender(tinCable, TinCable.BLOCKID);
 		registerRender(copperCable, CopperCable.BLOCKID);
 	}

@@ -3,9 +3,7 @@ package techplex.core.blocks.nature;
 import java.util.List;
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
-import com.google.common.base.Function;
+import com.google.common.base.Predicate;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -15,6 +13,7 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -25,39 +24,32 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import techplex.TechPlex;
+import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
-import techplex.core.items.ItemModMultiTexture;
 import techplex.core.registry.TPBlocks;
 import techplex.core.worldGen.WorldGenSharingaTree;
 
 public class TPBlockSapling extends BlockBush implements IGrowable {
-
-	public static final PropertyEnum TYPE = PropertyEnum.create("type", TPWoodType.class);
+	public static final PropertyEnum TYPE = PropertyEnum.create("type", TPWoodType.class, new Predicate() {
+		public boolean apply(TPWoodType type)
+		  {
+		    return type.getMetadata() < 4;
+		  }
+		  
+		  public boolean apply(Object p_apply_1_)
+		  {
+		    return apply((TPWoodType)p_apply_1_);
+		  }
+	});
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
+	public static final String BLOCKID = "techplex_sapling";
 
-	public TPBlockSapling(String modelName) {
-		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA).withProperty(STAGE, Integer.valueOf(0)));
-		this.setUnlocalizedName(modelName);
+	public TPBlockSapling() {
+		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA).withProperty(STAGE, 0));
+		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-
-		System.out.println("INITIALIZING BLOCK: " +modelName);    
-		GameRegistry.registerBlock(this, ItemModMultiTexture.class, modelName); // Register the Block using ItemModMultiTexture as the ItemBlock class
-
-		((ItemModMultiTexture) Item.getItemFromBlock(this)).setNameFunction(new Function<ItemStack, String>() { // Set the Item's name function
-			@Nullable
-			public String apply(ItemStack input) {
-				return TPWoodType.byMetadata(input.getItemDamage()).getName();
-			}
-		});
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void RegisterRenderer(String modelName) {
-
-		System.out.println("REGISTERING BLOCK RENDERER: " +modelName);  
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), 0, new ModelResourceLocation(TechPlex.MODID+":" + modelName, "inventory"));
+		this.setStepSound(soundTypeGrass);
 	}
 
 	/**
@@ -142,6 +134,20 @@ public class TPBlockSapling extends BlockBush implements IGrowable {
 	 */
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(TYPE, TPWoodType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
+	}
+
+	public static void inventoryRender() {
+		Item itemBlockBrickVariants = GameRegistry.findItem("techplex", "techplex_sapling");
+	    
+	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:sharinga_sapling" });
+	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:test_sapling" });
+	    
+	    Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_sapling");
+		TPWoodType[] enumtype = TPWoodType.values();
+		for (int i = 0; i < enumtype.length; i++) {
+			ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("techplex:" + enumtype[i] + "_sapling", "inventory");
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockVariants, enumtype[i].getMetadata(), itemModelResourceLocation);
+		}
 	}
 
 	/**

@@ -3,7 +3,7 @@ package techplex.core;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import techplex.core.pipes.TileEntityPipe;
+import techplex.core.pipes.energy.TileEntityCopperCable;
 import techplex.core.registry.TPBlocks;
 import techplex.core.registry.TPItems;
 import techplex.core.worldGen.WorldGeneration;
@@ -57,7 +57,7 @@ public class TechPlexCore {
 		
 		*/
 		//TiteEntity
-		GameRegistry.registerTileEntity(TileEntityPipe.class, "tileEntityPipe");
+		GameRegistry.registerTileEntity(TileEntityCopperCable.class, "tileEntityPipe");
 		
 		//Recipe registering
 		GameRegistry.addShapelessRecipe(new ItemStack(TPItems.bronzeDust, 4), new Object[] {TPItems.tinDust, TPItems.copperDust, TPItems.copperDust, TPItems.copperDust});
@@ -84,6 +84,6 @@ public class TechPlexCore {
 	}
 	
 	public void postInit() {
-		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0);
+		GameRegistry.registerWorldGenerator(new WorldGeneration(), 10);
 	}
 }

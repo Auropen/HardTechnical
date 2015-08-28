@@ -35,6 +35,7 @@ public class TechPlex {
     	TechPlexCore.getInstance().init();
 	    proxy.init(event);
 		proxy.registerRenders();
+		proxy.registerProxies();
     }
     
     @EventHandler

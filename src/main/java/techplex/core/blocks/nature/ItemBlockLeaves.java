@@ -15,10 +15,17 @@ import techplex.core.enumtypes.TPWoodType;
 public class ItemBlockLeaves extends ItemLeaves {
 	public ItemBlockLeaves(Block block) {
 		super((BlockLeaves) block);
+		setHasSubtypes(true);
+		setMaxStackSize(0);
+	}
+	
+	@Override
+	public int getMetadata(int damageValue) {
+		return damageValue;
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return block.getUnlocalizedName() + "." + TPWoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+	public String getUnlocalizedName(ItemStack item) {
+		return TPWoodType.byMetadata(item.getMetadata()) + "_leaves";
 	}
 }

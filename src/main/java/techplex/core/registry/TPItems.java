@@ -11,6 +11,7 @@ import techplex.core.items.CopperDust;
 import techplex.core.items.CopperIngot;
 import techplex.core.items.GoldDust;
 import techplex.core.items.IronDust;
+import techplex.core.items.Resin;
 import techplex.core.items.TinDust;
 import techplex.core.items.TinIngot;
 
@@ -24,6 +25,7 @@ public class TPItems {
 	public final static Item tinIngot = new TinIngot();	
 	public final static Item copperIngot = new CopperIngot();	
 	public final static Item bronzeIngot = new BronzeIngot();
+	public static final Item resin = new Resin();
 	
 	public void register() {
 		GameRegistry.registerItem(tinDust, TinDust.ITEMID);
@@ -34,6 +36,7 @@ public class TPItems {
 		GameRegistry.registerItem(tinIngot, TinIngot.ITEMID);
 		GameRegistry.registerItem(copperIngot, CopperIngot.ITEMID);
 		GameRegistry.registerItem(bronzeIngot, BronzeIngot.ITEMID);
+		GameRegistry.registerItem(resin, Resin.ITEMID);
 	}
 
 	public static void registerRenders() {
@@ -45,6 +48,7 @@ public class TPItems {
 		registerRender(tinIngot, TinIngot.ITEMID);
 		registerRender(copperIngot, CopperIngot.ITEMID);
 		registerRender(bronzeIngot, BronzeIngot.ITEMID);
+		registerRender(resin, Resin.ITEMID);
 	}
 	
 	private static void registerRender(Item i, String itemID) {

@@ -12,6 +12,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,43 +22,33 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import scala.actors.threadpool.Arrays;
-import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
 
 public class TPBlockLeaves extends BlockLeaves {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TPWoodType.class, new Predicate() {
-		public boolean apply(TPWoodType type) {
-			return type.getMetadata() < 4;
-		}
-
-		public boolean apply(Object p_apply_1_) {
-			return this.apply((TPWoodType) p_apply_1_);
-		}
+		public boolean apply(TPWoodType type)
+		  {
+		    return type.getMetadata() < 4;
+		  }
+		  
+		  public boolean apply(Object p_apply_1_)
+		  {
+		    return apply((TPWoodType)p_apply_1_);
+		  }
 	});
-
+	
 	public static final String BLOCKID = "techplex_leaves";
 
-	public TPBlockLeaves(String modelName) {
-		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(true))));
-		setUnlocalizedName(modelName);
+	public TPBlockLeaves() {
+		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(DECAYABLE, true).withProperty(CHECK_DECAY, true)));
 		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
-		System.out.println("INITIALIZING BLOCK: " + modelName);    
-		GameRegistry.registerBlock(this, ItemBlockLeaves.class, modelName); // Register the Block using ItemModMultiTexture as the ItemBlock class
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void registerRenderer(String modelName) {
-		System.out.println("INITIALIZING BLOCK: " + modelName);
-
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), 0, new ModelResourceLocation(TechPlex.MODID+":" + modelName, "inventory"));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -88,23 +79,17 @@ public class TPBlockLeaves extends BlockLeaves {
 			TPWoodType enumtype = (TPWoodType)iblockstate.getValue(VARIANT);
 
 			if (enumtype == TPWoodType.SHARINGA)
-				return ColorizerFoliage.getFoliageColor(0, 1);
-			/*if (enumtype == ???)
-			 * 	return ColorizerFoliage.getFoliageColorBirch();
-			 */
+				return LeafColors.sharinga();
 		}
 		return super.colorMultiplier(worldIn, pos, renderPass);
 	}
 
-	public IBlockState getStateFromMeta(int meta)
-	{
-		//return this.getDefaultState().withProperty(VARIANT, getCustomWoodType(meta)).withProperty(DECAYABLE, Boolean.valueOf((meta & 0x4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 0x8) > 0));
+	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(VARIANT, TPWoodType.byMetadata((meta & 3) % 4)).withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
 
 	}
 
-	public int getMetaFromState(IBlockState state)
-	{
+	public int getMetaFromState(IBlockState state) {
 		byte b0 = 0;
 		int i = b0 | ((TPWoodType)state.getValue(VARIANT)).getMetadata();
 		if (!((Boolean)state.getValue(DECAYABLE)).booleanValue()) {
@@ -151,19 +136,20 @@ public class TPBlockLeaves extends BlockLeaves {
 		return new ItemStack(Item.getItemFromBlock(this), 1, ((TPWoodType)state.getValue(VARIANT)).getMetadata());
 	}
 
-	/*public static void inventoryRender() {
-		Item itemBlockBrickVariants = GameRegistry.findItem(TechPlex.MODID, "techplex_leaves");
-
-		ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { TechPlex.MODID + ":sharinga_leaves" });
+	public static void inventoryRender() {
+		Item itemBlockBrickVariants = GameRegistry.findItem("techplex", "techplex_leaves");
+	    
+	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:sharinga_leaves" });
+	    
+	    Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_leaves");
 		TPWoodType[] enumtype = TPWoodType.values();
 		for (int i = 0; i < enumtype.length; i++) {
-			ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(TechPlex.MODID + ":" + enumtype[i] + "_leaves", "inventory");
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockBrickVariants, enumtype[i].getMetadata(), itemModelResourceLocation);
+			ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("techplex:" + enumtype[i] + "_leaves", "inventory");
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockVariants, enumtype[i].getMetadata(), itemModelResourceLocation);
 		}
-	}*/
+	}
 
-	public TPWoodType getCustomWoodType(int meta)
-	{
+	public TPWoodType getCustomWoodType(int meta) {
 		return TPWoodType.byMetadata((meta & 0x3) % 4);
 	}
 

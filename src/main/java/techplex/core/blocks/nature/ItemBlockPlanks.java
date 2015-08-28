@@ -5,8 +5,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import techplex.core.enumtypes.TPWoodType;
 
-public class ItemBlockLog extends ItemBlock {
-	public ItemBlockLog(Block block) {
+public class ItemBlockPlanks extends ItemBlock {
+	public ItemBlockPlanks(Block block) {
 		super(block);
 		setHasSubtypes(true);
 		setMaxStackSize(0);
@@ -19,6 +19,6 @@ public class ItemBlockLog extends ItemBlock {
 	
 	public String getUnlocalizedName(ItemStack item)
 	{
-		return TPWoodType.byMetadata(item.getMetadata()) + "_log";
+		return TPWoodType.byMetadata(item.getMetadata()) + "_planks";
 	}
 }

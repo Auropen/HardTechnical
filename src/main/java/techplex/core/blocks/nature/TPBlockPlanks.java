@@ -2,9 +2,6 @@ package techplex.core.blocks.nature;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
-
-import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -14,52 +11,46 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
-import techplex.core.items.ItemModMultiTexture;
 
-public class TPBlockPlanks extends Block{
-
+public class TPBlockPlanks extends Block {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TPWoodType.class, new Predicate() {
-		public boolean apply(TPWoodType type) {
-			return type.getMetadata() < 4;
-		}
-
-		public boolean apply(Object p_apply_1_) {
-			return this.apply((TPWoodType) p_apply_1_);
-		}
+		public boolean apply(TPWoodType type)
+		  {
+		    return type.getMetadata() < 4;
+		  }
+		  
+		  public boolean apply(Object p_apply_1_)
+		  {
+		    return apply((TPWoodType)p_apply_1_);
+		  }
 	});
+	public static final String BLOCKID = "techplex_planks";
 
-	public TPBlockPlanks(String modelName) {
+	public TPBlockPlanks() {
 		super(Material.wood);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA));
 		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
-		
-		System.out.println("INITIALIZING BLOCK: " + modelName);
-		GameRegistry.registerBlock(this, ItemModMultiTexture.class, modelName); // Register the Block using ItemModMultiTexture as the ItemBlock class
-		((ItemModMultiTexture) Item.getItemFromBlock(this)).setNameFunction(new Function<ItemStack, String>() { // Set the Item's name function
-			@Nullable
-			public String apply(ItemStack input) {
-				return TPWoodType.byMetadata(input.getItemDamage()).getName();
-			}
-		});
+		this.setStepSound(soundTypeWood);
 	}
 
-	@SideOnly(Side.CLIENT)
-	public void registerRenderer(String modelName) {
-		System.out.println("INITIALIZING BLOCK: " + modelName);
-
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(this), 0, new ModelResourceLocation(TechPlex.MODID+":" + modelName, "inventory"));
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+		return 300;
 	}
-
+	
 	/**
 	 * Get the damage value that this Block should drop
 	 */
@@ -102,5 +93,19 @@ public class TPBlockPlanks extends Block{
 	protected BlockState createBlockState()
 	{
 		return new BlockState(this, new IProperty[] {VARIANT});
+	}
+
+	public static void inventoryRender() {
+		Item itemBlockBrickVariants = GameRegistry.findItem("techplex", "techplex_planks");
+	    
+	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:sharinga_planks" });
+	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:test_planks" });
+	    
+	    Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_planks");
+		TPWoodType[] enumtype = TPWoodType.values();
+		for (int i = 0; i < enumtype.length; i++) {
+			ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("techplex:" + enumtype[i] + "_planks", "inventory");
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockVariants, enumtype[i].getMetadata(), itemModelResourceLocation);
+		}
 	}
 }

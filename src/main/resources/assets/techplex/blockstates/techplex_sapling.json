@@ -1,6 +1,6 @@
 {
     "variants": {
-        "type=sharinga,stage=0": { "model": "techplex:sharinga_sapling" },
-        "type=sharinga,stage=1": { "model": "techplex:sharinga_sapling" }
+        "stage=0,type=null": { "model": "techplex:sharinga_sapling" },
+        "stage=1,type=null": { "model": "techplex:sharinga_sapling" }
     }
 }
