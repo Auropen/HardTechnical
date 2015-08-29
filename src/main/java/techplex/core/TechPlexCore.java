@@ -8,7 +8,7 @@ import techplex.core.registry.TPBlocks;
 import techplex.core.registry.TPItems;
 import techplex.core.worldGen.WorldGeneration;
 
-public class TechPlexCore {
+public final class TechPlexCore {
 	private static TechPlexCore instance;
 	private TPBlocks blocks = new TPBlocks();
 	private TPItems items = new TPItems();
@@ -32,40 +32,22 @@ public class TechPlexCore {
 	public void preInit() {
 		blocks.register();
 		items.register();
-		//FMLCommonHandler.instance().bus().register(new TileEntityCable());
-	}		
+	}
 
 	
 	public void init() {
-		/*
-		//Items registering
-		ItemRegistry.registerItem(TPItems.copperIngot, CopperIngot.ITEMID);
-		ItemRegistry.registerItem(TPItems.tinIngot, TinIngot.ITEMID);
-		ItemRegistry.registerItem(TPItems.bronzeIngot, BronzeIngot.ITEMID);
-		ItemRegistry.registerItem(TPItems.ironDust, IronDust.ITEMID);
-		ItemRegistry.registerItem(TPItems.goldDust, GoldDust.ITEMID);
-		ItemRegistry.registerItem(TPItems.copperDust, CopperDust.ITEMID);
-		ItemRegistry.registerItem(TPItems.tinDust, TinDust.ITEMID);
-		ItemRegistry.registerItem(TPItems.bronzeDust, BronzeDust.ITEMID);
-		
-		//Blocks registering
-		BlockRegistry.registerBlock(TPBlocks.copperOre, CopperOre.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.tinOre, TinOre.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.sharingaLog, Sharinga_Log.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.sharingaLeaves, Sharinga_Leaves.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.tinCable, TinCable.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.copperCable, CopperCable.BLOCKID);
-		BlockRegistry.registerBlock(TPBlocks.blockPipe, BlockPipe.BLOCKID);
-		
-		*/
 		//TiteEntity
 		GameRegistry.registerTileEntity(TileEntityCopperCable.class, "tileEntityPipe");
 		
 		//Recipe registering
 		GameRegistry.addShapelessRecipe(new ItemStack(TPItems.bronzeDust, 4), new Object[] {TPItems.tinDust, TPItems.copperDust, TPItems.copperDust, TPItems.copperDust});
-		GameRegistry.addRecipe(new ItemStack(Items.baked_potato, 1), " i ", "iii", " i ", 'i', Items.iron_ingot);
-		GameRegistry.addRecipe(new ItemStack(TPBlocks.copperCable, 1), "ccc", 'c', TPItems.copperIngot);
-		GameRegistry.addRecipe(new ItemStack(TPBlocks.tinCable, 1), "ttt", 't', TPItems.tinIngot);
+		GameRegistry.addRecipe(new ItemStack(TPItems.ironCogwheel, 1), " i ", "iii", " i ", 'i', Items.iron_ingot);
+		GameRegistry.addRecipe(new ItemStack(TPItems.bronzeCogwheel, 1), " b ", "bbb", " b ", 'b', TPItems.bronzeIngot);
+		GameRegistry.addRecipe(new ItemStack(TPItems.diamondCogwheel, 1), " d ", "ddd", " d ", 'd', Items.diamond);
+		GameRegistry.addRecipe(new ItemStack(TPItems.rubber, 1), "rr", "rr", 'r', TPItems.rubberScrap);
+		GameRegistry.addRecipe(new ItemStack(TPItems.plasticBoard, 1), "ppp", "pgp", "ppp", 'p', TPItems.plastic, 'g', new ItemStack(Items.dye, 1, 2));
+		GameRegistry.addRecipe(new ItemStack(TPBlocks.copperCable, 6), "rrr", "ccc", "rrr", 'c', TPItems.copperIngot, 'r', TPItems.rubber);
+		GameRegistry.addRecipe(new ItemStack(TPBlocks.tinCable, 6), "rrr", "ttt", "rrr", 't', TPItems.tinIngot, 'r', TPItems.rubber);
 		//GameRegistry.addShapelessRecipe(new ItemStack(TPBlocks.techplex_log, 1, 0), new Object[] {TPBlocks.techplex_log});
 		
 		//Recipe smelting
@@ -83,6 +65,10 @@ public class TechPlexCore {
 				new ItemStack(TPItems.tinIngot,1), 0.35f);
 		GameRegistry.addSmelting(TPItems.bronzeDust, 
 				new ItemStack(TPItems.bronzeIngot,1), 0.35f);
+		GameRegistry.addSmelting(TPItems.resin, 
+				new ItemStack(TPItems.rubberScrap,1), 0.1f);
+		GameRegistry.addSmelting(TPItems.rubber, 
+				new ItemStack(TPItems.plastic,1), 0.1f);
 	}
 	
 	public void postInit() {

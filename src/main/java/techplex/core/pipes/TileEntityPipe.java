@@ -7,7 +7,7 @@ import net.minecraft.world.IBlockAccess;
 import techplex.core.pipes.energy.TileEntityCopperCable;
 import techplex.core.pipes.energy.TileEntityTinCable;
 
-public class TileEntityCable extends TileEntity {
+public class TileEntityPipe extends TileEntity {
 	//Pre-defined enumfacedirections, to use in a for loop
 	private final static EnumFaceDirection[] DIRECTIONS = new EnumFaceDirection[] 
 			{
@@ -30,7 +30,7 @@ public class TileEntityCable extends TileEntity {
 	public void updatePipes(boolean updateOnce) {
 		for (int i = 0; i < DIRECTIONS.length; i++) {
 			Object o = worldObj.getTileEntity(getPos().add(POSITIONS[i]));
-			TileEntityCable tep = (o instanceof TileEntityTinCable) 
+			TileEntityPipe tep = (o instanceof TileEntityTinCable) 
 						? (TileEntityTinCable) o 		
 					: (o instanceof TileEntityCopperCable) 
 						? (TileEntityCopperCable) o 	
@@ -48,7 +48,7 @@ public class TileEntityCable extends TileEntity {
 	public static void updatePipes(IBlockAccess world, BlockPos pos) {
 		for (int i = 0; i < DIRECTIONS.length; i++) {
 			Object o = world.getTileEntity(pos.add(POSITIONS[i]));
-			TileEntityCable tep = (o instanceof TileEntityTinCable) 
+			TileEntityPipe tep = (o instanceof TileEntityTinCable) 
 						? (TileEntityTinCable) o 		
 					: (o instanceof TileEntityCopperCable) 
 						? (TileEntityCopperCable) o 	

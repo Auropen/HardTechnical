@@ -41,12 +41,12 @@ public class BlockPipe extends BlockContainer{
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityCable();
+		return new TileEntityPipe();
 	}
 	
 	@Override
 	public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor) {
-		TileEntityCable.updatePipes(world, neighbor);
+		TileEntityPipe.updatePipes(world, neighbor);
 		super.onNeighborChange(world, pos, neighbor);
 	}
 }

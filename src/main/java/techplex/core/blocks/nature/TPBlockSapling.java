@@ -140,7 +140,6 @@ public class TPBlockSapling extends BlockBush implements IGrowable {
 		Item itemBlockBrickVariants = GameRegistry.findItem("techplex", "techplex_sapling");
 	    
 	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:sharinga_sapling" });
-	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:test_sapling" });
 	    
 	    Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_sapling");
 		TPWoodType[] enumtype = TPWoodType.values();

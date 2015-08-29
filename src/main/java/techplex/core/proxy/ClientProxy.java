@@ -8,7 +8,6 @@ import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.blocks.nature.TPBlockPlanks;
 import techplex.core.blocks.nature.TPBlockSapling;
-import techplex.core.pipes.TileEntityCable;
 import techplex.core.pipes.TileEntityPipeRender;
 import techplex.core.pipes.energy.TileEntityCopperCable;
 import techplex.core.pipes.energy.TileEntityTinCable;

@@ -28,7 +28,7 @@ public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 			bindTexture(textureCopper);
 		
 		drawCore();
-		TileEntityCable pipe = (TileEntityCable) te;
+		TileEntityPipe pipe = (TileEntityPipe) te;
 		pipe.updatePipes(true);
 		for (EnumFaceDirection dir : pipe.getConnections())
 			if (dir != null)

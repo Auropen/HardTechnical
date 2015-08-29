@@ -5,15 +5,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.TechPlex;
-import techplex.core.items.BronzeDust;
-import techplex.core.items.BronzeIngot;
-import techplex.core.items.CopperDust;
-import techplex.core.items.CopperIngot;
-import techplex.core.items.GoldDust;
-import techplex.core.items.IronDust;
-import techplex.core.items.Resin;
-import techplex.core.items.TinDust;
-import techplex.core.items.TinIngot;
+import techplex.core.items.*;
 
 public class TPItems {
 	public final static Item tinDust = new TinDust();
@@ -21,11 +13,18 @@ public class TPItems {
 	public final static Item bronzeDust = new BronzeDust();
 	public final static Item ironDust = new IronDust();
 	public final static Item goldDust = new GoldDust();
-	
 	public final static Item tinIngot = new TinIngot();	
 	public final static Item copperIngot = new CopperIngot();	
 	public final static Item bronzeIngot = new BronzeIngot();
+	public final static Item ironCogwheel = new IronCogwheel();
+	public final static Item bronzeCogwheel = new BronzeCogwheel();
+	public final static Item diamondCogwheel = new DiamondCogwheel();
+	
 	public static final Item resin = new Resin();
+	public static final Item rubber = new Rubber();
+	public static final Item rubberScrap = new RubberScrap();
+	public static final Item plastic = new Plastic();
+	public static final Item plasticBoard = new PlasticBoard();
 	
 	public void register() {
 		GameRegistry.registerItem(tinDust, TinDust.ITEMID);
@@ -37,6 +36,13 @@ public class TPItems {
 		GameRegistry.registerItem(copperIngot, CopperIngot.ITEMID);
 		GameRegistry.registerItem(bronzeIngot, BronzeIngot.ITEMID);
 		GameRegistry.registerItem(resin, Resin.ITEMID);
+		GameRegistry.registerItem(rubber, Rubber.ITEMID);
+		GameRegistry.registerItem(rubberScrap, RubberScrap.ITEMID);
+		GameRegistry.registerItem(plastic, Plastic.ITEMID);
+		GameRegistry.registerItem(plasticBoard, PlasticBoard.ITEMID);
+		GameRegistry.registerItem(ironCogwheel, IronCogwheel.ITEMID);
+		GameRegistry.registerItem(bronzeCogwheel, BronzeCogwheel.ITEMID);
+		GameRegistry.registerItem(diamondCogwheel, DiamondCogwheel.ITEMID);
 	}
 
 	public static void registerRenders() {
@@ -49,6 +55,13 @@ public class TPItems {
 		registerRender(copperIngot, CopperIngot.ITEMID);
 		registerRender(bronzeIngot, BronzeIngot.ITEMID);
 		registerRender(resin, Resin.ITEMID);
+		registerRender(rubber, Rubber.ITEMID);
+		registerRender(rubberScrap, RubberScrap.ITEMID);
+		registerRender(plastic, Plastic.ITEMID);
+		registerRender(ironCogwheel, IronCogwheel.ITEMID);
+		registerRender(bronzeCogwheel, BronzeCogwheel.ITEMID);
+		registerRender(diamondCogwheel, DiamondCogwheel.ITEMID);
+		registerRender(plasticBoard, PlasticBoard.ITEMID);
 	}
 	
 	private static void registerRender(Item i, String itemID) {

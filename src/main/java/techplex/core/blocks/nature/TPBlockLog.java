@@ -109,7 +109,7 @@ public class TPBlockLog extends BlockLog {
 
 	@Override
 	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
-		if (state.getValue(VARIANT) == TPWoodType.SHARINGA && (int) (Math.random()*2) == 0)
+		if ((TPWoodType)state.getValue(VARIANT) == TPWoodType.SHARINGA && Math.random() < 0.75)
 			new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ()).dropItem(TPItems.resin, 1);
 		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
 	}
