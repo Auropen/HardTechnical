@@ -7,12 +7,12 @@ import techplex.TechPlex;
 import techplex.core.pipes.BlockPipe;
 
 public class TinCable extends BlockPipe {
-public final static String BLOCKID = "tinCable";
-	
+	public final static String BLOCKID = "tinCable";
+
 	public TinCable() {
 		super();
-        setStepSound(Block.soundTypeCloth);
-        setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
+		setStepSound(Block.soundTypeCloth);
+		setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
 	}
 
 	@Override

@@ -3,6 +3,9 @@ package techplex.core.pipes;
 import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import techplex.core.pipes.energy.TileEntityCopperCable;
+import techplex.core.pipes.energy.TileEntityTinCable;
 
 public class TileEntityCable extends TileEntity {
 	//Pre-defined enumfacedirections, to use in a for loop
@@ -27,15 +30,35 @@ public class TileEntityCable extends TileEntity {
 	public void updatePipes(boolean updateOnce) {
 		for (int i = 0; i < DIRECTIONS.length; i++) {
 			Object o = worldObj.getTileEntity(getPos().add(POSITIONS[i]));
-			TileEntityCable tep = (o instanceof TileEntityCable) 
-					? (TileEntityCable) o : null;
+			TileEntityCable tep = (o instanceof TileEntityTinCable) 
+						? (TileEntityTinCable) o 		
+					: (o instanceof TileEntityCopperCable) 
+						? (TileEntityCopperCable) o 	
+					: null;
 			if (tep != null) {
 				getConnections()[i] = DIRECTIONS[i];
-				if (!updateOnce) tep.updatePipes(true);
+				if (!updateOnce) {
+					tep.updatePipes(true);
+				}
+			}
+			else getConnections()[i] = null;
+		}
+	}
+	
+	public static void updatePipes(IBlockAccess world, BlockPos pos) {
+		for (int i = 0; i < DIRECTIONS.length; i++) {
+			Object o = world.getTileEntity(pos.add(POSITIONS[i]));
+			TileEntityCable tep = (o instanceof TileEntityTinCable) 
+						? (TileEntityTinCable) o 		
+					: (o instanceof TileEntityCopperCable) 
+						? (TileEntityCopperCable) o 	
+					: null;
+			if (tep != null) {
+				tep.updatePipes(true);
 			}
 		}
 	}
-
+	
 	public EnumFaceDirection[] getConnections() {
 		return connections;
 	}

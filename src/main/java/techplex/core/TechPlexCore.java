@@ -32,7 +32,9 @@ public class TechPlexCore {
 	public void preInit() {
 		blocks.register();
 		items.register();
-	}
+		//FMLCommonHandler.instance().bus().register(new TileEntityCable());
+	}		
+
 	
 	public void init() {
 		/*

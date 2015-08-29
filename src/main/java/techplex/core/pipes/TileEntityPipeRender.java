@@ -14,7 +14,7 @@ import techplex.core.pipes.energy.TileEntityTinCable;
 
 public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 	private ResourceLocation textureCopper = new ResourceLocation(TechPlex.MODID + ":textures/blocks/copperCable.png");
-	private ResourceLocation textureTin = new ResourceLocation(TechPlex.MODID + ":textures/blocks/copperCable.png");
+	private ResourceLocation textureTin = new ResourceLocation(TechPlex.MODID + ":textures/blocks/tinCable.png");
 	private final static float p = 1f / 16f;
 
 	@Override
@@ -48,12 +48,12 @@ public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 			wr.addVertexWithUV(p*4, 	1-p*4, 	1-p*4, 	p*4, p*4);
 			wr.addVertexWithUV(p*4, 	p*4,	1-p*4,  p*4, 1-p*4);
 
-			wr.addVertexWithUV(1-p*4, 	p*4,	 p*4, 	1-p*4, 1-p*4);
+			wr.addVertexWithUV(1-p*4, 	p*4,	p*4, 	1-p*4, 1-p*4);
 			wr.addVertexWithUV(1-p*4, 	1-p*4, 	p*4, 	1-p*4, p*4);
 			wr.addVertexWithUV(1-p*4, 	1-p*4, 	1-p*4, 	p*4, p*4);
 			wr.addVertexWithUV(1-p*4, 	p*4, 	1-p*4, 	p*4, 1-p*4);
 
-			wr.addVertexWithUV(p*4, 	p*4,	 p*4, 	1-p*4, 1-p*4);
+			wr.addVertexWithUV(p*4, 	p*4,	p*4, 	1-p*4, 1-p*4);
 			wr.addVertexWithUV(p*4, 	1-p*4, 	p*4, 	1-p*4, p*4);
 			wr.addVertexWithUV(1-p*4, 	1-p*4, 	p*4, 	p*4, p*4);
 			wr.addVertexWithUV(1-p*4, 	p*4, 	p*4, 	p*4, 1-p*4);
@@ -80,6 +80,7 @@ public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 		
 		Tessellator tes = Tessellator.getInstance();
 		WorldRenderer wr = tes.getWorldRenderer();
+		GL11.glPushMatrix();
 		wr.startDrawingQuads();
 		{
 			GL11.glTranslatef(0.5f, 0.5f, 0.5f);
@@ -89,11 +90,11 @@ public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 			case DOWN:
 				GL11.glRotatef(180, 1, 0, 0);
 				break;
-			case NORTH:
-				GL11.glRotatef(270, 1, 0, 0);
-				break;
 			case SOUTH:
 				GL11.glRotatef(90, 1, 0, 0);
+				break;
+			case NORTH:
+				GL11.glRotatef(270, 1, 0, 0);
 				break;
 			case WEST:
 				GL11.glRotatef(90, 0, 0, 1);
@@ -125,5 +126,6 @@ public class TileEntityPipeRender extends TileEntitySpecialRenderer {
 			wr.addVertexWithUV(p*4, 	1-p*4, 	p*4, p*4, p*4);
 		}
 		tes.draw();
+		GL11.glPopMatrix();
 	}
 }

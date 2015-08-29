@@ -28,7 +28,6 @@ public class TPBlocks {
     public final static Block techplex_planks = new TPBlockPlanks().setUnlocalizedName("techplex_planks");;
     public final static Block techplex_sapling = new TPBlockSapling().setUnlocalizedName("techplex_sapling");;
     
-    public final static Block blockPipe = new BlockPipe();
     public final static Block tinCable = new TinCable();
     public final static Block copperCable = new CopperCable();
     
@@ -43,7 +42,6 @@ public class TPBlocks {
     	GameRegistry.registerBlock(techplex_planks, ItemBlockPlanks.class, TPBlockPlanks.BLOCKID);
     	GameRegistry.registerBlock(techplex_sapling, ItemBlockSapling.class, TPBlockSapling.BLOCKID);
     	
-    	GameRegistry.registerBlock(blockPipe, BlockPipe.BLOCKID);
     	GameRegistry.registerBlock(tinCable, TinCable.BLOCKID);
     	GameRegistry.registerBlock(copperCable, CopperCable.BLOCKID);
     }
@@ -54,7 +52,6 @@ public class TPBlocks {
     	//registerRender(leadOre, LeadOre.BLOCKID);
     	//registerRender(bauxiteOre, BauxiteOre.BLOCKID);
     	//registerRender(titaniumOre, TitaniumOre.BLOCKID);
-		registerRender(blockPipe, CopperCable.BLOCKID);
 		registerRender(tinCable, TinCable.BLOCKID);
 		registerRender(copperCable, CopperCable.BLOCKID);
 	}
