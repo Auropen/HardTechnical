@@ -1,5 +1,6 @@
-tile.techplex_copperOre.name=Copper Ore
-tile.techplex_tinOre.name=Tin Ore
+tile.techplex_copper_ore.name=Copper Ore
+tile.techplex_tin_ore.name=Tin Ore
+tile.techplex_titanium_ore.name=Tin Ore
 sharinga_log.name=Sharinga Wood
 sharinga_leaves.name=Sharinga Leaves
 sharinga_planks.name=Sharinga Planks
@@ -13,6 +14,9 @@ item.techplex_rubberScrap.name=Rubber Scrap
 item.techplex_rubber.name=Rubber
 item.techplex_plastic.name=Plastic
 item.techplex_plasticBoard.name=Plastic Board
+item.techplex_ironCogwheel.name=Iron Cogwheel
+item.techplex_bronzeCogwheel.name=Bronze Cogwheel
+item.techplex_diamondCogwheel.name=Diamond Cogwheel
 
 item.techplex_ironDust.name=Iron Dust
 item.techplex_goldDust.name=Gold Dust

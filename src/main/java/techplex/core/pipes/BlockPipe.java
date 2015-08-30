@@ -35,6 +35,11 @@ public class BlockPipe extends BlockContainer{
 	}
 	
 	@Override
+	public boolean isSolidFullCube() {
+		return false;
+	}
+	
+	@Override
 	public EnumWorldBlockLayer getBlockLayer() {
 		return EnumWorldBlockLayer.CUTOUT;
 	}

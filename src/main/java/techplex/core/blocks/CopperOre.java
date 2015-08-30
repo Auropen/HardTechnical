@@ -6,7 +6,7 @@ import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
 public class CopperOre extends Block {
-	public static final String BLOCKID = "copperOre";
+	public static final String BLOCKID = "copper_ore";
 	
 	public CopperOre() {
 		super(Material.rock);

@@ -6,7 +6,7 @@ import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
 public class TinOre extends Block{
-	public static final String BLOCKID = "tinOre";
+	public static final String BLOCKID = "tin_ore";
 	
 	public TinOre() {
 		super(Material.rock);

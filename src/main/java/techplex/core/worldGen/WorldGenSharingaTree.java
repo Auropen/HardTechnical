@@ -12,6 +12,7 @@ import net.minecraftforge.common.IPlantable;
 import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.enumtypes.TPWoodType;
+import techplex.core.registry.TPBlocks;
 
 public class WorldGenSharingaTree extends WorldGenAbstractTree {
 	private final int minTreeHeight;
@@ -41,8 +42,8 @@ public class WorldGenSharingaTree extends WorldGenAbstractTree {
 			world.setBlockState(treePos.up(y), wood.getDefaultState().withProperty(TPBlockLog.VARIANT, TPWoodType.byMetadata(metaWood)));
 		
 		//Generate Leaves
-		float leavesRadius = 3.5f; //Radius size (max 5x5) from bottom-most layer of leaves
-		float leavesRadiusDecrementer = 0.2f; //Decrements leaves radius size from bottom to up
+		float leavesRadius = 3f; //Radius size (max 5x5) from bottom-most layer of leaves
+		float leavesRadiusDecrementer = -0.2f; //Decrements leaves radius size from bottom to up
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 5; x++) {
 				for (int z = 0; z < 5; z++) {
@@ -50,14 +51,14 @@ public class WorldGenSharingaTree extends WorldGenAbstractTree {
 					if (blockInPosition(world, leafPos, Blocks.air)) {
 						float distLeafToLog = (float) Math.hypot(treePos.getX() - leafPos.getX(), treePos.getZ() - leafPos.getZ());
 						if (Math.ceil(distLeafToLog) < leavesRadius) {
-							if (distLeafToLog > 2)
+							if (distLeafToLog > 1.1)
 								world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.byMetadata(metaLeaves)));
 							else
 								world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.byMetadata(metaLeaves)));
 						}
 						else {
 							if (rand.nextDouble() < leavesRadius - distLeafToLog) { //Creates a bit distortion on the edge of the leaves
-								if (distLeafToLog > 2)
+								if (distLeafToLog > 1.1)
 									world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.CHECK_DECAY, false).withProperty(TPBlockLeaves.VARIANT, TPWoodType.byMetadata(metaLeaves)));
 								else
 									world.setBlockState(leafPos, leaves.getDefaultState().withProperty(TPBlockLeaves.VARIANT, TPWoodType.byMetadata(metaLeaves)));
@@ -67,13 +68,14 @@ public class WorldGenSharingaTree extends WorldGenAbstractTree {
 				}
 			}
 			leavesRadius -= leavesRadiusDecrementer;
-			leavesRadiusDecrementer += 0.5f;
+			leavesRadiusDecrementer += 0.66f;
 		}
 		return true;
 	}
 	
 	public boolean canGrow(World world, BlockPos treePos) {
-		if (!world.getBlockState(treePos.down()).getBlock().canSustainPlant(world, treePos, EnumFacing.UP, (IPlantable) Blocks.sapling) ||
+		if ((world.getBlockState(treePos).getBlock() == Blocks.air &&
+				!world.getBlockState(treePos.down()).getBlock().canSustainPlant(world, treePos, EnumFacing.UP, (IPlantable) Blocks.sapling)) ||
 				treePos.getY() > 256 - minTreeHeight + 4)
 			return false;
 		for (int y = 0; y < minTreeHeight + 3; y++) {
@@ -94,7 +96,8 @@ public class WorldGenSharingaTree extends WorldGenAbstractTree {
 			blockInPosition(world, pos, Blocks.tallgrass) ||
 			blockInPosition(world, pos, Blocks.double_plant) ||
 			blockInPosition(world, pos, Blocks.red_flower) ||
-			blockInPosition(world, pos, Blocks.yellow_flower))
+			blockInPosition(world, pos, Blocks.yellow_flower) ||
+			blockInPosition(world, pos, TPBlocks.techplex_sapling))
 			return true;
 		return false;
 	}

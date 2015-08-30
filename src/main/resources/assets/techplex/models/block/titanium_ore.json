@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "techplex:blocks/copperOre"
+        "all": "techplex:blocks/titanium_ore"
     }
 }

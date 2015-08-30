@@ -1,5 +1,5 @@
 {
-    "parent": "techplex:block/tinOre",
+    "parent": "techplex:block/titanium_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

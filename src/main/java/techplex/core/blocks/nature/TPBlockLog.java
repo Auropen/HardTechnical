@@ -116,7 +116,7 @@ public class TPBlockLog extends BlockLog {
 	
 	protected BlockState createBlockState()
 	{
-		return new BlockState(this, new IProperty[] { LOG_AXIS, VARIANT });
+		return new BlockState(this, new IProperty[] {VARIANT,LOG_AXIS});
 	}
 
 	protected ItemStack createStackedBlock(IBlockState state) {

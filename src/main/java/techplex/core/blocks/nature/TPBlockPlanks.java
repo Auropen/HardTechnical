@@ -26,7 +26,7 @@ import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
 
 public class TPBlockPlanks extends Block {
-	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TPWoodType.class, new Predicate() {
+	public static final PropertyEnum TYPE = PropertyEnum.create("type", TPWoodType.class, new Predicate() {
 		public boolean apply(TPWoodType type)
 		  {
 		    return type.getMetadata() < 4;
@@ -41,7 +41,7 @@ public class TPBlockPlanks extends Block {
 
 	public TPBlockPlanks() {
 		super(Material.wood);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA));
 		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
 		this.setStepSound(soundTypeWood);
 	}
@@ -55,15 +55,14 @@ public class TPBlockPlanks extends Block {
 	 * Get the damage value that this Block should drop
 	 */
 	public int damageDropped(IBlockState state) {
-		return ((TPWoodType)state.getValue(VARIANT)).getMetadata();
+		return ((TPWoodType)state.getValue(TYPE)).getMetadata();
 	}
 
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
 	 */
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
-	{
+	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
 		TPWoodType[] aenumtype = TPWoodType.values();
 		int i = aenumtype.length;
 
@@ -77,29 +76,25 @@ public class TPBlockPlanks extends Block {
 	/**
 	 * Convert the given metadata into a BlockState for this Block
 	 */
-	public IBlockState getStateFromMeta(int meta)
-	{
-		return this.getDefaultState().withProperty(VARIANT, TPWoodType.byMetadata(meta));
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(TYPE, TPWoodType.byMetadata(meta));
 	}
 
 	/**
 	 * Convert the BlockState into the correct metadata value
 	 */
-	public int getMetaFromState(IBlockState state)
-	{
-		return ((TPWoodType)state.getValue(VARIANT)).getMetadata();
+	public int getMetaFromState(IBlockState state) {
+		return ((TPWoodType)state.getValue(TYPE)).getMetadata();
 	}
 
-	protected BlockState createBlockState()
-	{
-		return new BlockState(this, new IProperty[] {VARIANT});
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[] {TYPE});
 	}
 
 	public static void inventoryRender() {
 		Item itemBlockBrickVariants = GameRegistry.findItem("techplex", "techplex_planks");
 	    
 	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:sharinga_planks" });
-	    ModelBakery.addVariantName(itemBlockBrickVariants, new String[] { "techplex:test_planks" });
 	    
 	    Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_planks");
 		TPWoodType[] enumtype = TPWoodType.values();

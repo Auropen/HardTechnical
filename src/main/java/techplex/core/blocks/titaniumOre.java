@@ -6,7 +6,7 @@ import techplex.TechPlex;
 import techplex.core.CreativeTabsTechPlex;
 
 public class TitaniumOre extends Block {
-	public static final String BLOCKID = "titaniumOre";
+	public static final String BLOCKID = "titanium_ore";
 	
 	public TitaniumOre() {
 		super(Material.rock);

@@ -2,6 +2,7 @@ package techplex.core.blocks.nature;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.common.base.Predicate;
 
@@ -30,6 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import scala.actors.threadpool.Arrays;
 import techplex.core.CreativeTabsTechPlex;
 import techplex.core.enumtypes.TPWoodType;
+import techplex.core.registry.TPBlocks;
 
 public class TPBlockLeaves extends BlockLeaves {
 	public static final PropertyEnum VARIANT = PropertyEnum.create("variant", TPWoodType.class, new Predicate() {
@@ -130,6 +132,11 @@ public class TPBlockLeaves extends BlockLeaves {
 
 	protected int getSaplingDropChance(IBlockState state) {
 		return state.getValue(VARIANT) == TPWoodType.SHARINGA ? 20 : super.getSaplingDropChance(state);
+	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return (state.getValue(VARIANT) == TPWoodType.SHARINGA) ? Item.getItemFromBlock(TPBlocks.techplex_sapling) : super.getItemDropped(state, rand, fortune);
 	}
 
 	protected ItemStack createStackedBlock(IBlockState state) { 	

@@ -14,7 +14,6 @@ import techplex.core.blocks.nature.TPBlockLeaves;
 import techplex.core.blocks.nature.TPBlockLog;
 import techplex.core.blocks.nature.TPBlockPlanks;
 import techplex.core.blocks.nature.TPBlockSapling;
-import techplex.core.pipes.BlockPipe;
 import techplex.core.pipes.energy.CopperCable;
 import techplex.core.pipes.energy.TinCable;
 
@@ -36,12 +35,11 @@ public class TPBlocks {
     	GameRegistry.registerBlock(tinOre, TinOre.BLOCKID);
     	//GameRegistry.registerBlock(leadOre, LeadOre.BLOCKID);
     	//GameRegistry.registerBlock(bauxiteOre, BauxiteOre.BLOCKID);
-    	//GameRegistry.registerBlock(titaniumOre, TitaniumOre.BLOCKID);
+    	GameRegistry.registerBlock(titaniumOre, TitaniumOre.BLOCKID);
     	//GameRegistry.registerBlock(techplex_log, ItemBlockLog.class, TPBlockLog.BLOCKID);
     	GameRegistry.registerBlock(techplex_leaves, ItemBlockLeaves.class, TPBlockLeaves.BLOCKID);
     	GameRegistry.registerBlock(techplex_planks, ItemBlockPlanks.class, TPBlockPlanks.BLOCKID);
     	GameRegistry.registerBlock(techplex_sapling, ItemBlockSapling.class, TPBlockSapling.BLOCKID);
-    	
     	GameRegistry.registerBlock(tinCable, TinCable.BLOCKID);
     	GameRegistry.registerBlock(copperCable, CopperCable.BLOCKID);
     }
@@ -51,7 +49,7 @@ public class TPBlocks {
 		registerRender(tinOre, TinOre.BLOCKID);
     	//registerRender(leadOre, LeadOre.BLOCKID);
     	//registerRender(bauxiteOre, BauxiteOre.BLOCKID);
-    	//registerRender(titaniumOre, TitaniumOre.BLOCKID);
+    	registerRender(titaniumOre, TitaniumOre.BLOCKID);
 		registerRender(tinCable, TinCable.BLOCKID);
 		registerRender(copperCable, CopperCable.BLOCKID);
 	}
