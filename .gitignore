@@ -40,4 +40,5 @@ eclipse/crash-reports/crash-2015-08-19_03.42.18-client.txt
 *.lock
 eclipse/*
 bin/*
+.git/*
 .project

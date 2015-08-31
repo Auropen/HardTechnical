@@ -37,9 +37,7 @@ public class TileEntityPipe extends TileEntity {
 					: null;
 			if (tep != null) {
 				getConnections()[i] = DIRECTIONS[i];
-				if (!updateOnce) {
-					tep.updatePipes(true);
-				}
+				if (!updateOnce) tep.updatePipes(true);
 			}
 			else getConnections()[i] = null;
 		}
@@ -53,9 +51,7 @@ public class TileEntityPipe extends TileEntity {
 					: (o instanceof TileEntityCopperCable) 
 						? (TileEntityCopperCable) o 	
 					: null;
-			if (tep != null) {
-				tep.updatePipes(true);
-			}
+			if (tep != null) tep.updatePipes(true);
 		}
 	}
 	

@@ -22,7 +22,7 @@ public class WorldGeneration implements IWorldGenerator {
 		
 		generateOre(TPBlocks.copperOre, world, random, chunkX, chunkZ, 1, 8, 20, 32, 72, true);
 		generateOre(TPBlocks.tinOre, world, random, chunkX, chunkZ, 1, 8, 18, 16, 56, true);
-		generateOre(TPBlocks.titaniumOre, world, random, chunkX, chunkZ, 1, 1, 2, 1, 36, true);
+		generateOre(TPBlocks.titaniumOre, world, random, chunkX, chunkZ, 1, 2, 5, 1, 36, true);
 		//RubberTree (Sharinga)
 		sharingaTreeGen = new WorldGenSharingaTree(TPBlocks.techplex_log, TPBlocks.techplex_leaves, chunkX, chunkZ, false, 4);
 		generateTree(random, chunkX, chunkZ, world, sharingaTreeGen, 0.05f, 3, 7, true);

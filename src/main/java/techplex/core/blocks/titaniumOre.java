@@ -10,7 +10,7 @@ public class TitaniumOre extends Block {
 	
 	public TitaniumOre() {
 		super(Material.rock);
-		setHardness(100.0F);
+		setHardness(30.0F);
 		setResistance(20.0f);
         setStepSound(Block.soundTypeStone);
         setHarvestLevel("pickaxe", 3);

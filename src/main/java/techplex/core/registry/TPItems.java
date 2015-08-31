@@ -25,6 +25,10 @@ public class TPItems {
 	public static final Item rubberScrap = new RubberScrap();
 	public static final Item plastic = new Plastic();
 	public static final Item plasticBoard = new PlasticBoard();
+	public static final Item circuitBoard = new CircuitBoard();
+	public static final Item printedCircuitBoard = new PrintedCircuitBoard();
+	public static final Item circuitPaste = new CircuitPaste();
+	public static final Item circuitGlue = new CircuitGlue();
 	
 	public void register() {
 		GameRegistry.registerItem(tinDust, TinDust.ITEMID);
@@ -40,6 +44,10 @@ public class TPItems {
 		GameRegistry.registerItem(rubberScrap, RubberScrap.ITEMID);
 		GameRegistry.registerItem(plastic, Plastic.ITEMID);
 		GameRegistry.registerItem(plasticBoard, PlasticBoard.ITEMID);
+		GameRegistry.registerItem(circuitBoard, CircuitBoard.ITEMID);
+		GameRegistry.registerItem(printedCircuitBoard, PrintedCircuitBoard.ITEMID);
+		GameRegistry.registerItem(circuitPaste, CircuitPaste.ITEMID);
+		GameRegistry.registerItem(circuitGlue, CircuitGlue.ITEMID);
 		GameRegistry.registerItem(ironCogwheel, IronCogwheel.ITEMID);
 		GameRegistry.registerItem(bronzeCogwheel, BronzeCogwheel.ITEMID);
 		GameRegistry.registerItem(diamondCogwheel, DiamondCogwheel.ITEMID);
@@ -62,6 +70,10 @@ public class TPItems {
 		registerRender(bronzeCogwheel, BronzeCogwheel.ITEMID);
 		registerRender(diamondCogwheel, DiamondCogwheel.ITEMID);
 		registerRender(plasticBoard, PlasticBoard.ITEMID);
+		registerRender(circuitBoard, CircuitBoard.ITEMID);
+		registerRender(printedCircuitBoard, PrintedCircuitBoard.ITEMID);
+		registerRender(circuitPaste, CircuitPaste.ITEMID);
+		registerRender(circuitGlue, CircuitGlue.ITEMID);
 	}
 	
 	private static void registerRender(Item i, String itemID) {
