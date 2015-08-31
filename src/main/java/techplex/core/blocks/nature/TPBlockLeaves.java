@@ -50,7 +50,7 @@ public class TPBlockLeaves extends BlockLeaves {
 
 	public TPBlockLeaves() {
 		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(DECAYABLE, true).withProperty(CHECK_DECAY, true)));
-		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+		setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 	}
 
 	@SideOnly(Side.CLIENT)

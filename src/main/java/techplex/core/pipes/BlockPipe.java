@@ -16,7 +16,7 @@ public class BlockPipe extends BlockContainer{
 	public BlockPipe() {
 		super(Material.ground);
 		setUnlocalizedName("BlockPipe");
-		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+		setCreativeTab(CreativeTabsTechPlex.tabTechPlexMachines);
 		setBlockBounds(p*4, p*4, p*4, 1-p*4, 1-p*4, 1-p*4);
 	}
 	
@@ -30,7 +30,6 @@ public class BlockPipe extends BlockContainer{
 		return false;
 	}
 	
-	@Override
 	public boolean isSolidFullCube() {
 		return false;
 	}

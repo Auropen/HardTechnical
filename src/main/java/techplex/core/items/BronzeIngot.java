@@ -9,7 +9,7 @@ public class BronzeIngot extends Item {
 	
 	public BronzeIngot() {
 		maxStackSize = 64;
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

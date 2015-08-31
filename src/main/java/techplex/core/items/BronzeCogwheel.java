@@ -9,7 +9,7 @@ public final static String ITEMID = "bronzeCogwheel";
 	
 	public BronzeCogwheel() {
 		maxStackSize = 64;
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

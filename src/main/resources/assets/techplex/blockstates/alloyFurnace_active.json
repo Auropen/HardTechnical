@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=south": { "model": "techplex:alloyFurnace_active", "y": 180 },
+		"facing=north": { "model": "techplex:alloyFurnace_active", "y": 0 },
+		"facing=west": { "model": "techplex:alloyFurnace_active", "y": 270 },
+		"facing=east": { "model": "techplex:alloyFurnace_active", "y": 90 }
+    }
+}

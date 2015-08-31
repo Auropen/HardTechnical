@@ -9,7 +9,7 @@ public final static String ITEMID = "plastic";
 	
 	public Plastic() {
 		maxStackSize = 64;
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

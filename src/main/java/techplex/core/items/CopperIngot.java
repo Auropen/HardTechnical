@@ -9,7 +9,7 @@ public class CopperIngot extends Item {
 	
 	public CopperIngot() {
 		maxStackSize = 64;
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

@@ -45,7 +45,7 @@ public class TPBlockLog extends BlockLog {
 
 	public TPBlockLog() {
 		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, TPWoodType.SHARINGA).withProperty(LOG_AXIS, BlockLog.EnumAxis.Y)));
-		setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+		setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 
 		GameRegistry.registerBlock(this, ItemModMultiTexture.class, BLOCKID); // Register the Block using ItemModMultiTexture as the ItemBlock class
 		((ItemModMultiTexture) Item.getItemFromBlock(this)).setNameFunction(new Function<ItemStack, String>() { // Set the Item's name function

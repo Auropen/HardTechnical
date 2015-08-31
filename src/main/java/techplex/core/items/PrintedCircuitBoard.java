@@ -9,7 +9,7 @@ public class PrintedCircuitBoard extends Item {
 	
 	public PrintedCircuitBoard() {
 		maxStackSize = 64;
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		setUnlocalizedName(TechPlex.MODID+"_"+ITEMID);
 	}
 }

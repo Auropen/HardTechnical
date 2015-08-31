@@ -5,7 +5,26 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.TechPlex;
-import techplex.core.items.*;
+import techplex.core.items.BronzeCogwheel;
+import techplex.core.items.BronzeDust;
+import techplex.core.items.BronzeIngot;
+import techplex.core.items.CircuitBoard;
+import techplex.core.items.CircuitGlue;
+import techplex.core.items.CircuitPaste;
+import techplex.core.items.CopperDust;
+import techplex.core.items.CopperIngot;
+import techplex.core.items.DiamondCogwheel;
+import techplex.core.items.GoldDust;
+import techplex.core.items.IronCogwheel;
+import techplex.core.items.IronDust;
+import techplex.core.items.Plastic;
+import techplex.core.items.PlasticBoard;
+import techplex.core.items.PrintedCircuitBoard;
+import techplex.core.items.Resin;
+import techplex.core.items.Rubber;
+import techplex.core.items.RubberScrap;
+import techplex.core.items.TinDust;
+import techplex.core.items.TinIngot;
 
 public class TPItems {
 	public final static Item tinDust = new TinDust();

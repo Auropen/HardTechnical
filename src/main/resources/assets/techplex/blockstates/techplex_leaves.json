@@ -1,8 +1,8 @@
 {
    "variants":{
-      "check_decay=true,decayable=true,variant=null":  { "model":"techplex:sharinga_leaves" },
-      "check_decay=true,decayable=false,variant=null": { "model":"techplex:sharinga_leaves" },
-      "check_decay=false,decayable=true,variant=null": { "model":"techplex:sharinga_leaves" },
-      "check_decay=false,decayable=false,variant=null":{ "model":"techplex:sharinga_leaves" }
+      "check_decay=true,decayable=true,variant=sharinga":  { "model":"techplex:sharinga_leaves" },
+      "check_decay=true,decayable=false,variant=sharinga": { "model":"techplex:sharinga_leaves" },
+      "check_decay=false,decayable=true,variant=sharinga": { "model":"techplex:sharinga_leaves" },
+      "check_decay=false,decayable=false,variant=sharinga":{ "model":"techplex:sharinga_leaves" }
    }
 }

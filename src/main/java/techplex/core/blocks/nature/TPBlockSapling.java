@@ -46,7 +46,7 @@ public class TPBlockSapling extends BlockBush implements IGrowable {
 
 	public TPBlockSapling() {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA).withProperty(STAGE, 0));
-		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 		this.setStepSound(soundTypeGrass);

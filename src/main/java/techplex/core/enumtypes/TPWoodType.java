@@ -36,8 +36,7 @@ public enum TPWoodType implements IStringSerializable {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 	public String getUnlocalizedName() {

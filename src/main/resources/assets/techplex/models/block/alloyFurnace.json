@@ -1,0 +1,349 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+        "alloy_furnace_top": "techplex:blocks/alloyFurnace_top",
+        "texture": "techplex:blocks/alloyFurnace_front_off",
+        "particle": "techplex:blocks/alloyFurnace_front_off",
+        "alloy_furnace_side": "techplex:blocks/alloyFurnace_side"
+    },
+    "elements": [
+        {
+            "from": [0,0,1],
+            "to": [16,16,16],
+            "faces": {
+                "up": {
+                    "uv": [0,0,16,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "down": {
+                    "uv": [16,15,0,0],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [0,0,15,16],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                },
+                "south": {
+                    "texture": "#alloy_furnace_side"
+                }
+            }
+        },
+        {
+            "from": [0,13,0],
+            "to": [16,16,1],
+            "faces": {
+                "up": {
+                    "uv": [0,15,16,16],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "down": {
+                    "uv": [16,16,0,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,0,16,4],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [13,10,0],
+            "to": [16,12,1],
+            "faces": {
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,4,16,6],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [0,4,2,6],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [7,10,0],
+            "to": [9,12,1],
+            "faces": {
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,4,16,6],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,10,0],
+            "to": [3,12,1],
+            "faces": {
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,4,16,6],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [14,4,16,6],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,5,0],
+            "to": [16,10,1],
+            "faces": {
+                "up": {
+                    "uv": [0,15,16,16],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "down": {
+                    "uv": [16,16,0,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,6,16,11],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [10,4,0],
+            "to": [16,5,1],
+            "faces": {
+                "down": {
+                    "uv": [16,16,10,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "uv": [7,11,8,12],
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,11,16,12],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [0,11,6,12],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,4,0],
+            "to": [6,5,1],
+            "faces": {
+                "down": {
+                    "uv": [6,16,0,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,11,16,12],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [10,11,16,12],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [12,3,0],
+            "to": [16,4,1],
+            "faces": {
+                "down": {
+                    "uv": [16,16,12,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "uv": [7,12,8,13],
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,12,16,13],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [0,12,4,13],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,3,0],
+            "to": [4,4,1],
+            "faces": {
+                "down": {
+                    "uv": [4,16,0,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,12,16,13],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [12,12,16,13],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [13,0,0],
+            "to": [16,3,1],
+            "faces": {
+                "down": {
+                    "uv": [16,16,13,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "uv": [7,13,8,16],
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,13,16,16],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [0,13,3,16],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,0,0],
+            "to": [3,3,1],
+            "faces": {
+                "down": {
+                    "uv": [3,16,0,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "uv": [15,13,16,16],
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [13,13,16,16],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [3,-0.0625,0],
+            "to": [13,0,1],
+            "faces": {
+                "up": {
+                    "uv": [3,15,13,16],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                },
+                "down": {
+                    "uv": [13,16,3,15],
+                    "texture": "#alloy_furnace_top",
+                    "rotation": 180
+                }
+            }
+        },
+        {
+            "from": [12,12,0],
+            "to": [16,13,1],
+            "faces": {
+                "down": {
+                    "texture": "#alloy_furnace_top"
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "uv": [12,3,16,4],
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [0,12,0],
+            "to": [4,13,1],
+            "faces": {
+                "down": {
+                    "texture": "#alloy_furnace_top"
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                }
+            }
+        },
+        {
+            "from": [6,12,0],
+            "to": [10,13,1],
+            "faces": {
+                "down": {
+                    "texture": "#alloy_furnace_top"
+                },
+                "west": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "east": {
+                    "texture": "#alloy_furnace_side"
+                },
+                "north": {
+                    "texture": "#texture"
+                }
+            }
+        }
+    ]
+}

@@ -15,6 +15,6 @@ public class LeadOre extends Block {
         setStepSound(Block.soundTypeStone);
         setHarvestLevel("pickaxe", 2);
         setUnlocalizedName(TechPlex.MODID + "_" + BLOCKID);
-        setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+        setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 	}
 }

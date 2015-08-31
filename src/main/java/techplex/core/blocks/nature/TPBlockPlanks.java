@@ -42,7 +42,7 @@ public class TPBlockPlanks extends Block {
 	public TPBlockPlanks() {
 		super(Material.wood);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, TPWoodType.SHARINGA));
-		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlex);
+		this.setCreativeTab(CreativeTabsTechPlex.tabTechPlexMain);
 		this.setStepSound(soundTypeWood);
 	}
 
