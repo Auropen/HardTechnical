@@ -16,30 +16,24 @@ TODO:
 
 Power system (Energy system to power the machines, produced by different generators)
 
-  -> Different power levels (Atm. using RF, maybe going independent on later update)
+  + Different power levels (Atm. using RF, maybe going independent on later update)
   
 Machines:
 
-  -> Generators, can't have machines without energy.
-
-  -> Ore processing (Either by Crushing/Macerating/Pulverize, and smelting using power)
-  
-  -> Farmer Machines, to chop tree, harvest crops and possible mobs?
-  
-  -> Advanced smelter to mix ores and more (AKA AlloyFurnce)
-  
-  -> Multiblock machines (Later update)
-  
-  -> Upgrades for machines (Later update).
+  + Generators, can't have machines without energy.
+  + Ore processing (Either by Crushing/Macerating/Pulverize, and smelting using power)
+  + Farmer Machines, to chop tree, harvest crops and possible mobs?
+  + Advanced smelter to mix ores and more (AKA AlloyFurnce)
+  + Multiblock machines (Later update)
+  + Upgrades for machines (Later update).
 
 Gear:
 
-  -> Wrench, for managing the machines
-  
-  -> Hard to craft jetpack(?)
+  + Wrench, for managing the machines
+  + Hard to craft jetpack(?)
 
 WorldGen:
 
-  -> Forgotten technology lab dungeon (W. important TechPlex materials, and low chance of containing finished machines) 
+  + Forgotten technology lab dungeon (W. important TechPlex materials, and low chance of containing finished machines) 
 
 List will keep growing.
