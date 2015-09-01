@@ -8,7 +8,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 
 public class TileEntityAlloy extends TileEntityInventory implements ISidedInventory, IUpdatePlayerListBox{
-
+	
 	@Override
 	public int getSizeInventory() {
 		// TODO Auto-generated method stub
@@ -137,6 +137,21 @@ public class TileEntityAlloy extends TileEntityInventory implements ISidedInvent
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getBurnTimeRemainingScaled(int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getProgressScaled(int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean isBurning() {
 		// TODO Auto-generated method stub
 		return false;
 	}

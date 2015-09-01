@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
@@ -12,7 +13,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import techplex.core.CreativeTabsTechPlex;
+import techplex.TechPlex;
+import techplex.core.handlers.GUIHandler;
 import techplex.core.registry.TPBlocks;
 import techplex.core.tileentity.TileEntityAlloy;
 
@@ -21,11 +23,12 @@ public class AlloyFurnace extends BlockMachine {
 	public static boolean keepInventory = false;
 	private boolean isActive = false;
 	
-	public AlloyFurnace() {
+	public AlloyFurnace(boolean active) {
 		super(Material.iron);
-		setCreativeTab(CreativeTabsTechPlex.tabTechPlexMachines);
 		setUnlocalizedName(BLOCKID);
 		setStepSound(soundTypeMetal);
+		setHardness(4F);
+		isActive = active;
 	}
 	
 	@Override
@@ -52,8 +55,8 @@ public class AlloyFurnace extends BlockMachine {
 	public int getMaxEnergyStored() {
 		return 20000;
 	}
-
-	public TileEntity func_149915_a(World world, int metadata) {
+	
+	public TileEntity createNewTileEntity(World world, int metadata) {
 		return new TileEntityAlloy();
 	}
 	
@@ -116,5 +119,15 @@ public class AlloyFurnace extends BlockMachine {
 				break;
 			}
 		}
+	}
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
+	{
+		if (worldIn.isRemote)
+			return true;
+		
+		playerIn.openGui(TechPlex.instance, GUIHandler.GUIID_ALLOYFURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		return true;
 	}
 }

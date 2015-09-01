@@ -6,12 +6,12 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.TechPlex;
+import techplex.core.CreativeTabsTechPlex;
 import techplex.core.blocks.CopperOre;
 import techplex.core.blocks.LeadOre;
 import techplex.core.blocks.TinOre;
 import techplex.core.blocks.TitaniumOre;
 import techplex.core.blocks.machine.AlloyFurnace;
-import techplex.core.blocks.machine.AlloyFurnace_active;
 import techplex.core.blocks.nature.ItemBlockLeaves;
 import techplex.core.blocks.nature.ItemBlockPlanks;
 import techplex.core.blocks.nature.ItemBlockSapling;
@@ -34,8 +34,8 @@ public class TPBlocks {
     
     public final static Block tinCable = new TinCable();
     public final static Block copperCable = new CopperCable();
-    public final static Block alloyFurnace = new AlloyFurnace();
-    public final static Block alloyFurnace_active = new AlloyFurnace_active();
+    public final static Block alloyFurnace = new AlloyFurnace(false).setCreativeTab(CreativeTabsTechPlex.tabTechPlexMachines);
+    public final static Block alloyFurnace_active = new AlloyFurnace(true);
     
     public void register() {
     	GameRegistry.registerBlock(copperOre, CopperOre.BLOCKID);
@@ -50,7 +50,7 @@ public class TPBlocks {
     	GameRegistry.registerBlock(tinCable, TinCable.BLOCKID);
     	GameRegistry.registerBlock(copperCable, CopperCable.BLOCKID);
     	GameRegistry.registerBlock(alloyFurnace, AlloyFurnace.BLOCKID);
-    	GameRegistry.registerBlock(alloyFurnace_active, AlloyFurnace_active.BLOCKID);
+    	GameRegistry.registerBlock(alloyFurnace_active, AlloyFurnace.BLOCKID);
     }
 
 	public static void registerRenders() {
@@ -62,7 +62,7 @@ public class TPBlocks {
 		registerRender(tinCable, TinCable.BLOCKID);
 		registerRender(copperCable, CopperCable.BLOCKID);
 		registerRender(alloyFurnace, AlloyFurnace.BLOCKID);
-		registerRender(alloyFurnace_active, AlloyFurnace_active.BLOCKID);
+		registerRender(alloyFurnace_active, AlloyFurnace.BLOCKID);
 	}
 	
 	private static void registerRender(Block b, String blockID) {

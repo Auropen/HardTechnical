@@ -76,6 +76,8 @@ public class WorldGenSharingaTree extends WorldGenAbstractTree {
 	public boolean canGrow(World world, BlockPos treePos) {
 		if ((world.getBlockState(treePos).getBlock() == Blocks.air &&
 				!world.getBlockState(treePos.down()).getBlock().canSustainPlant(world, treePos, EnumFacing.UP, (IPlantable) Blocks.sapling)) ||
+				!(world.getBlockState(treePos.down()).getBlock() == Blocks.dirt) ||
+				!(world.getBlockState(treePos.down()).getBlock() == Blocks.grass) ||
 				treePos.getY() > 256 - minTreeHeight + 4)
 			return false;
 		for (int y = 0; y < minTreeHeight + 3; y++) {

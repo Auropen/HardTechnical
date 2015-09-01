@@ -3,7 +3,7 @@ package techplex.core.enumtypes;
 import net.minecraft.util.IStringSerializable;
 
 public enum TPOreType implements IStringSerializable {
-	COPPER(0, "copperOre"), TIN(1, "tinOre"), LEAD(2, "leadOre"), BAUXITE(3, "BauxiteOre"), TITANIUM(4, "TitaniumOre");
+	COPPER(0, "copperOre"), TIN(1, "tinOre"), LEAD(2, "leadOre"), BAUXITE(3, "bauxiteOre"), TITANIUM(4, "titaniumOre");
 
 	private static final TPOreType[] META_LOOKUP;
 	private final int meta;

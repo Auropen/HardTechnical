@@ -3,6 +3,7 @@ package techplex;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -17,6 +18,9 @@ public class TechPlex {
     public static final String MODID = "techplex";
     public static final String NAME = "TechPlex";
     public static final String VERSION = "0.0.0-alpha";
+    
+    @Instance(MODID)
+	public static TechPlex instance;
     
     @SidedProxy(clientSide="techplex.core.proxy.ClientProxy", serverSide="techplex.core.proxy.ServerProxy")
     public static CommonProxy proxy;
