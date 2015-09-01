@@ -2,10 +2,10 @@
     "__createdwith": "opl's Model Creator",
     "ambientocclusion": false,
     "textures": {
-        "alloy_furnace_top": "techplex:blocks/alloy_furnace_top",
-        "texture": "techplex:blocks/alloy_furnace_front_on",
-        "particle": "techplex:blocks/alloy_furnace_front_on",
-        "alloy_furnace_side": "techplex:blocks/alloy_furnace_side"
+        "alloy_furnace_top": "techplex:blocks/alloyFurnace_top",
+        "texture": "techplex:blocks/alloyFurnace_front_on",
+        "particle": "techplex:blocks/alloyFurnace_front_on",
+        "alloy_furnace_side": "techplex:blocks/alloyFurnace_side"
     },
     "elements": [
         {

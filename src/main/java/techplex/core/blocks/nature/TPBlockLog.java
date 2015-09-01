@@ -137,10 +137,7 @@ public class TPBlockLog extends BlockLog {
 		Item itemBlockVariants = GameRegistry.findItem("techplex", "techplex_log");
 		TPWoodType[] enumtype = TPWoodType.values();
 		for (int i = 0; i < enumtype.length; i++) {
-			System.out.println("enumtype[i]=" + enumtype[i]);
-			System.out.println("enumtype[i].getMetadata()=" + enumtype[i].getMetadata());
 			ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("techplex:" + enumtype[i] + "_log", "inventory");
-			System.out.println(itemModelResourceLocation.getResourceDomain() + ":" + itemModelResourceLocation.getResourcePath());
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockVariants, enumtype[i].getMetadata(), itemModelResourceLocation);
 		}
 	}

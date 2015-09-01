@@ -1,7 +1,6 @@
 package techplex.core;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import techplex.TechPlex;
 import techplex.core.registry.TPBlocks;

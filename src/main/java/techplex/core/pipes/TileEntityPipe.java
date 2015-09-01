@@ -6,6 +6,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import techplex.core.pipes.energy.TileEntityCopperCable;
 import techplex.core.pipes.energy.TileEntityTinCable;
+import techplex.core.tileentity.TileEntityAlloy;
 
 public class TileEntityPipe extends TileEntity {
 	//Pre-defined enumfacedirections, to use in a for loop
@@ -35,10 +36,15 @@ public class TileEntityPipe extends TileEntity {
 					: (o instanceof TileEntityCopperCable) 
 						? (TileEntityCopperCable) o 	
 					: null;
+			TileEntity machine = (o instanceof TileEntityAlloy)
+						? (TileEntityAlloy) o 
+					: null;
 			if (tep != null) {
 				getConnections()[i] = DIRECTIONS[i];
 				if (!updateOnce) tep.updatePipes(true);
 			}
+			else if (machine != null)
+				getConnections()[i] = DIRECTIONS[i];
 			else getConnections()[i] = null;
 		}
 	}

@@ -16,12 +16,12 @@ import techplex.core.CreativeTabsTechPlex;
 import techplex.core.registry.TPBlocks;
 import techplex.core.tileentity.TileEntityAlloy;
 
-public class AlloyFurnace extends BlockMachine {
-	public final static String BLOCKID = "alloyFurnace";
+public class AlloyFurnace_active extends BlockMachine {
+	public final static String BLOCKID = "alloyFurnace_active";
 	public static boolean keepInventory = false;
 	private boolean isActive = false;
 	
-	public AlloyFurnace() {
+	public AlloyFurnace_active() {
 		super(Material.iron);
 		setCreativeTab(CreativeTabsTechPlex.tabTechPlexMachines);
 		setUnlocalizedName(BLOCKID);
@@ -53,14 +53,18 @@ public class AlloyFurnace extends BlockMachine {
 		return 20000;
 	}
 
-	public TileEntity func_149915_a(World world, int metadata) {
+	public TileEntity func_149915_a(World world, int metadata)
+	{
 		return new TileEntityAlloy();
 	}
 	
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		if (!keepInventory) {
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+	{
+		if (!keepInventory)
+		{
 			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if ((tileentity instanceof TileEntityAlloy)) {
+			if ((tileentity instanceof TileEntityAlloy))
+			{
 				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityAlloy)tileentity);
 				worldIn.updateComparatorOutputLevel(pos, this);
 			}
@@ -96,7 +100,8 @@ public class AlloyFurnace extends BlockMachine {
 			double d2 = pos.getZ() + 0.5D;
 			double d3 = 0.52D;
 			double d4 = rand.nextDouble() * 0.6D - 0.3D;
-			switch (enumfacing) {
+			switch (enumfacing)
+			{
 			case WEST: 
 				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
 				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
