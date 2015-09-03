@@ -6,23 +6,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
-		
 	}
 	
 	public void init(FMLInitializationEvent event) {
-		
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {
-		
 	}
 	
 	public void registerProxies() {
-		
 	}
 
 	public void registerRenders() {
-		// TODO Auto-generated method stub
-		
+	}
+	
+	public void openGUI(Object gui) {
 	}
 }

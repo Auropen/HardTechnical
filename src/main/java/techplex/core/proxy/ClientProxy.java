@@ -1,5 +1,7 @@
 package techplex.core.proxy;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -43,5 +45,10 @@ public class ClientProxy extends CommonProxy {
 		TPBlockSapling.inventoryRender();
 		
 		TPItems.registerRenders();
+	}
+
+	@Override
+	public void openGUI(Object gui) {
+		Minecraft.getMinecraft().displayGuiScreen((GuiScreen) gui);
 	}
 }

@@ -46,9 +46,9 @@ public final class TechPlexCore {
 		GameRegistry.registerTileEntity(TileEntityAlloyFurnace.class, "tileEntityAlloyFurnace");
 		
 		
+		GameRegistry.registerWorldGenerator(new WorldGeneration(), 10);
 	}
 	
 	public void postInit() {
-		GameRegistry.registerWorldGenerator(new WorldGeneration(), 10);
 	}
 }

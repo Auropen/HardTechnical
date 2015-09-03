@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import techplex.core.TechPlexCore;
 import techplex.core.proxy.CommonProxy;
+import techplex.core.handlers.GUIHandler;
 
 @Mod(modid = TechPlex.MODID, name = TechPlex.NAME, version = TechPlex.VERSION, acceptedMinecraftVersions="[1.8]")
 public class TechPlex {
@@ -32,6 +33,11 @@ public class TechPlex {
     	TechPlexCore.getInstance().preInit();
     	proxy.preInit(event);
     	network = NetworkRegistry.INSTANCE.newSimpleChannel("TechPlex");
+    	
+
+		if (TechPlex.proxy != null) {
+			NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
+		}
     }
     
     @EventHandler
