@@ -50,7 +50,7 @@ public class TPBlocks {
     	GameRegistry.registerBlock(tinCable, TinCable.BLOCKID);
     	GameRegistry.registerBlock(copperCable, CopperCable.BLOCKID);
     	GameRegistry.registerBlock(alloyFurnace, AlloyFurnace.BLOCKID);
-    	GameRegistry.registerBlock(alloyFurnace_active, AlloyFurnace.BLOCKID);
+    	GameRegistry.registerBlock(alloyFurnace_active, AlloyFurnace.BLOCKID + "_active");
     }
 
 	public static void registerRenders() {

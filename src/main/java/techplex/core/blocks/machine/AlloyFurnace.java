@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import techplex.TechPlex;
 import techplex.core.handlers.GUIHandler;
 import techplex.core.registry.TPBlocks;
-import techplex.core.tileentity.TileEntityAlloy;
+import techplex.core.tileentity.TileEntityAlloyFurnace;
 
 public class AlloyFurnace extends BlockMachine {
 	public final static String BLOCKID = "alloyFurnace";
@@ -57,14 +57,14 @@ public class AlloyFurnace extends BlockMachine {
 	}
 	
 	public TileEntity createNewTileEntity(World world, int metadata) {
-		return new TileEntityAlloy();
+		return new TileEntityAlloyFurnace();
 	}
 	
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		if (!keepInventory) {
 			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if ((tileentity instanceof TileEntityAlloy)) {
-				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityAlloy)tileentity);
+			if ((tileentity instanceof TileEntityAlloyFurnace)) {
+				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityAlloyFurnace)tileentity);
 				worldIn.updateComparatorOutputLevel(pos, this);
 			}
 		}

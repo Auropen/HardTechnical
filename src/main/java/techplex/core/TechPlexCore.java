@@ -4,7 +4,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import techplex.core.pipes.energy.TileEntityCopperCable;
 import techplex.core.registry.RecipeRegistry;
 import techplex.core.registry.TPBlocks;
+import techplex.core.registry.TPDictionary;
 import techplex.core.registry.TPItems;
+import techplex.core.tileentity.TileEntityAlloyFurnace;
 import techplex.core.worldGen.WorldGeneration;
 
 public final class TechPlexCore {
@@ -31,14 +33,19 @@ public final class TechPlexCore {
 	public void preInit() {
 		blocks.register();
 		items.register();
+		
+		RecipeRegistry.register();
+		
+		TPDictionary.load();
 	}
 
 	
 	public void init() {
 		//TiteEntity
 		GameRegistry.registerTileEntity(TileEntityCopperCable.class, "tileEntityPipe");
+		GameRegistry.registerTileEntity(TileEntityAlloyFurnace.class, "tileEntityAlloyFurnace");
 		
-		RecipeRegistry.register();
+		
 	}
 	
 	public void postInit() {

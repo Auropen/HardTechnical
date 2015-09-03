@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import techplex.core.inventory.container.ContainerAlloyFurnace;
 import techplex.core.inventory.gui.GUIAlloyFurnace;
-import techplex.core.tileentity.TileEntityAlloy;
+import techplex.core.tileentity.TileEntityAlloyFurnace;
 
 public class GUIHandler implements IGuiHandler
 {
@@ -22,9 +22,9 @@ public class GUIHandler implements IGuiHandler
 
 		TileEntity tileEntity = world.getTileEntity(xyz);
 
-		if (tileEntity instanceof TileEntityAlloy)
+		if (tileEntity instanceof TileEntityAlloyFurnace)
 		{
-			TileEntityAlloy tileEntityAlloy = (TileEntityAlloy) tileEntity;
+			TileEntityAlloyFurnace tileEntityAlloy = (TileEntityAlloyFurnace) tileEntity;
 			return new ContainerAlloyFurnace(player, tileEntityAlloy);
 		}
 		return null;
@@ -38,9 +38,9 @@ public class GUIHandler implements IGuiHandler
 
 		TileEntity tileEntity = world.getTileEntity(xyz);
 
-		if (tileEntity instanceof TileEntityAlloy)
+		if (tileEntity instanceof TileEntityAlloyFurnace)
 		{
-			TileEntityAlloy tileEntityAlloy = (TileEntityAlloy) tileEntity;
+			TileEntityAlloyFurnace tileEntityAlloy = (TileEntityAlloyFurnace) tileEntity;
 			return new GUIAlloyFurnace(player, tileEntityAlloy);
 		}
 		return null;

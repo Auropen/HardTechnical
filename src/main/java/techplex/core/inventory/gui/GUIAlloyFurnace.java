@@ -8,15 +8,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import techplex.TechPlex;
 import techplex.core.inventory.container.ContainerAlloyFurnace;
-import techplex.core.tileentity.TileEntityAlloy;
+import techplex.core.tileentity.TileEntityAlloyFurnace;
 
 public class GUIAlloyFurnace extends GuiContainer {
 
 public static final ResourceLocation	texture	= new ResourceLocation(TechPlex.MODID, "textures/gui/alloy_furnace.png");
 	
-	private TileEntityAlloy furnace;
+	private TileEntityAlloyFurnace furnace;
 	
-	public GUIAlloyFurnace(EntityPlayer player, TileEntityAlloy furnace)
+	public GUIAlloyFurnace(EntityPlayer player, TileEntityAlloyFurnace furnace)
 	{
 		super(new ContainerAlloyFurnace(player, furnace));
 		this.furnace = furnace;
