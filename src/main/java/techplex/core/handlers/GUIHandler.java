@@ -18,9 +18,9 @@ public class GUIHandler implements IGuiHandler
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 
-		BlockPos xyz = new BlockPos(x, y, z);
+		BlockPos pos = new BlockPos(x, y, z);
 
-		TileEntity tileEntity = world.getTileEntity(xyz);
+		TileEntity tileEntity = world.getTileEntity(pos);
 
 		if (tileEntity instanceof TileEntityAlloyFurnace)
 		{
@@ -34,9 +34,9 @@ public class GUIHandler implements IGuiHandler
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
 
-		BlockPos xyz = new BlockPos(x, y, z);
+		BlockPos pos = new BlockPos(x, y, z);
 
-		TileEntity tileEntity = world.getTileEntity(xyz);
+		TileEntity tileEntity = world.getTileEntity(pos);
 
 		if (tileEntity instanceof TileEntityAlloyFurnace)
 		{

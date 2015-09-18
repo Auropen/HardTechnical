@@ -21,6 +21,7 @@ import techplex.core.tileentity.TileEntityAlloyFurnace;
 public class AlloyFurnace extends BlockMachine {
 	public final static String BLOCKID = "alloyFurnace";
 	public static boolean keepInventory = false;
+	public final boolean isBurning = false;
 	private boolean isActive = false;
 	
 	public AlloyFurnace(boolean active) {
@@ -29,6 +30,8 @@ public class AlloyFurnace extends BlockMachine {
 		setStepSound(soundTypeMetal);
 		setHardness(4F);
 		isActive = active;
+		if (active)
+			this.setLightLevel(1F);
 	}
 	
 	@Override
